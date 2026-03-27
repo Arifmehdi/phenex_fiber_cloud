@@ -83,12 +83,6 @@
                                     <textarea name="footer_copyright" class="form-control" rows="4" id="footer_copyright" placeholder="Copyright text in footer area">{{ old('footer_copyright') ?: $websiteParameter->footer_copyright ?? '' }}</textarea>
                                 </div>
 
-
-                                <div class="form-group ">
-                                    <label for="fb_url" class="  control-label">Facebook Page Url</label>
-                                    <input type="text" name="fb_url" class="form-control" value="{{ old('fb_url') ?: $websiteParameter->fb_url ?? '' }}" id="fb_url" placeholder="https://facebook.com/page.username" autocomplete="off">
-                                </div>
-
                                 <div class="form-group ">
                                     <label for="contact_mobile" class="  control-label">Contact Address</label>
                                     <input type="text" name="contact_address" class="form-control" value="{{ old('contact_address') ?: $websiteParameter->contact_address ?? '' }}" id="contact_address" placeholder="+address" autocomplete="off">
@@ -105,6 +99,11 @@
                                 </div>
 
                                 <div class="form-group ">
+                                    <label for="fb_url" class="  control-label">Facebook Page Url</label>
+                                    <input type="text" name="fb_url" class="form-control" value="{{ old('fb_url') ?: $websiteParameter->fb_url ?? '' }}" id="fb_url" placeholder="https://facebook.com/page.username" autocomplete="off">
+                                </div>
+
+                                <div class="form-group ">
                                     <label for="twitter_url" class="  control-label">Twitter Url</label>
                                     <input type="text" name="twitter_url" class="form-control" value="{{ old('twitter_url') ?: $websiteParameter->twitter_url ?? '' }}" id="twitter_url" placeholder="Twitter url" autocomplete="off">
                                 </div>
@@ -112,6 +111,11 @@
                                 <div class="form-group ">
                                     <label for="youtube_url" class="  control-label">Youtube Url</label>
                                     <input type="text" name="youtube_url" class="form-control" value="{{ old('youtube_url') ?: $websiteParameter->youtube_url ?? '' }}" id="youtube_url" placeholder="Youtube Url" autocomplete="off">
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="iframe_map" class="  control-label">Map Iframe</label>
+                                    <input type="text" name="iframe_map" class="form-control" value="{{ old('iframe_map') ?: $websiteParameter->iframe_map ?? '' }}" id="iframe_map" placeholder="Map Iframe Code" autocomplete="off">
                                 </div>
 
                             </div>

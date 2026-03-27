@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-    <x-breadcrumb slug="Our Team" image="{{ asset('frontend') }}/assets/img/media/page-title-bg.png"/>
+    <x-breadcrumb slug="About Us" image="{{ asset('frontend') }}/assets/img/media/page-title-bg.png"/>
 
     <section class="about pt-120 pb-90" data-bg-img="{{ asset('frontend')}}/assets/img/media/use-govpn-bg.png">
         <div class="container">

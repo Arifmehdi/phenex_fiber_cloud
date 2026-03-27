@@ -11,27 +11,8 @@
 @endsection
 
 @section('content')
-    <div class="page-title-wrap" data-bg-img="assets/img/media/page-title-bg.png">
-        <div class="grid-animation">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title text-white">
-                        <h1>Contact Us</h1>
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Contact Us</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-breadcrumb slug="Contact Us" image="{{ asset('frontend') }}/assets/img/media/page-title-bg.png"/>
+
     <section class="contact pt-120 pb-120" data-bg-img="assets/img/media/contact-bg.png">
         <div class="container">
             <div class="row justify-content-between">
@@ -43,13 +24,16 @@
                                 zero log policy keeps your identity under wrap. order preserve your privacy, we’ll never
                                 record your activity.</p>
                         </div>
-                        <form action="https://themelooks.net/demo/govpn/html/sendmail.php" class="contact-form">
+                        <form action="{{ route('contact.store') }}" class="contact-form" method="POST">
+                            @csrf
                             <div class="row">
-                                <div class="col-12"><input type="text" name="name" class="form-control"
-                                        placeholder="First Name"> <input type="email" name="email" class="form-control"
-                                        placeholder="Email Address"> <textarea class="form-control" name="message"
-                                        placeholder="Messages"></textarea> <button type="submit" class="btn"><img
-                                            src="assets/img/icons/btn-svg.svg" alt="" class="svg"> Submit Now</button>
+                                <div class="col-12">
+                                    <input type="text" name="name" class="form-control" placeholder="First Name"> 
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address"> 
+                                    <textarea class="form-control" name="message"  placeholder="Messages"> </textarea> 
+                                    <button type="submit" class="btn">
+                                        <img src="assets/img/icons/btn-svg.svg" alt="" class="svg"> Submit Now
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -76,8 +60,33 @@
             </div>
         </div>
     </section>
-    <div class="map" data-trigger="map"
-        data-map-options='{"latitude": "23.8103", "longitude": "90.4125", "zoom": "10"}'></div>
+    <div class="map-responsive">
+        <iframe 
+            src="{{ $ws->iframe_map}}"
+            allowfullscreen 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <style id="mapresp2">
+    .map-responsive {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 ratio */
+        height: 0;
+        overflow: hidden;
+    }
+
+    .map-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    </style>
     <section class="faq pt-120 pb-120">
         <div class="container">
             <div class="row">

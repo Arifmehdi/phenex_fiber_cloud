@@ -32,6 +32,7 @@ class WebsiteParameterController extends Controller
         $wp->contact_mobile = $request->contact_mobile;
         $wp->contact_email = $request->contact_email;
         $wp->contact_address = $request->contact_address;
+        $wp->iframe_map = $request->iframe_map;
         $wp->twitter_url = $request->twitter_url;
         $wp->youtube_url = $request->youtube_url;
 

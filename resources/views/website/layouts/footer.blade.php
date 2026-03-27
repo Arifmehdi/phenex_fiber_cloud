@@ -47,9 +47,9 @@
                                     class="form-control" placeholder="Email Address..."> <button type="submit"><img
                                         src="{{ asset('frontend')}}/assets/img/icons/paper.svg" alt="" class="svg"></button></form>
                             <div class="social-links style--two pt-1"><span>Follow Us:</span> <a
-                                    href="{{ $ws->fb_url}}"><i class="fa fa-facebook"></i> </a><a
-                                    href="{{ $ws->twitter_url}}"><i class="fa fa-twitter"></i> </a><a
-                                    href="{{ $ws->youtube_url }}"><i class="fa fa-youtube"></i> </a>
+                                    href="{{ $ws->fb_url}}" target="_blank"><i class="fa fa-facebook"></i> </a><a
+                                    href="{{ $ws->twitter_url}}" target="_blank"><i class="fa fa-twitter"></i> </a><a
+                                    href="{{ $ws->youtube_url }}" target="_blank"><i class="fa fa-youtube"></i> </a>
                                     <!-- <a  href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a> -->
                                 </div>
                         </div>

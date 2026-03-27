@@ -216,7 +216,7 @@
 
                    
 
-                    {{--<li class="nav-item {{ session('lsbm') == 'menupage' ? ' menu-open ' : ''}}">
+                    <li class="nav-item {{ session('lsbm') == 'menupage' ? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'menupage' ? ' active ' : ''}}">
                             <i class="nav-icon fas fa-bezier-curve"></i>
                             <p>
@@ -242,7 +242,7 @@
                             </li>
 
                         </ul>
-                    </li>--}}
+                    </li>
 
                     {{--<li class="nav-item {{ session('lsbm') == 'categories'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'categories'? ' active ' : ''}}">
