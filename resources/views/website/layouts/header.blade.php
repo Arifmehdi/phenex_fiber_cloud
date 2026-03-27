@@ -3,8 +3,8 @@
             <div class="container">
                 <div class="row align-items-center position-relative">
                     <div class="col-lg-2 col-sm-3 col-5">
-                        <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('frontend')}}/assets/img/logo.png" class="main-logo" alt="">
-                                <img src="{{ asset('frontend')}}/assets/img/sticky-logo.png" class="sticky-logo" alt=""></a></div>
+                        <div class="logo"><a href="{{ route('home') }}"><img src="{{ route('imagecache', [ 'template'=>'original','filename' => $ws->logo() ]) }}" class="main-logo" alt="">
+                                <img src="{{ route('imagecache', [ 'template'=>'original','filename' => $ws->logo_alt() ]) }}" class="sticky-logo" alt=""></a></div>
                     </div>
                     <div class="col-lg-10 col-sm-9 col-7 d-flex align-items-center justify-content-end position-static">
                         <div class="nav-wrapper w-100 d-flex justify-content-end justify-content-lg-center">

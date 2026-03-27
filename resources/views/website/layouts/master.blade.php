@@ -9,7 +9,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ route('imagecache', ['template' => 'original', 'filename' => $ws->favicon()]) }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ route('imagecache', ['template' => 'original', 'filename' => $ws->favicon()]) }}">
+    <link rel="icon" href="{{ route('imagecache', ['template' => 'original', 'filename' => $ws->favicon()]) }}" type="image/x-icon">
+    
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;family=Rubik:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet">
