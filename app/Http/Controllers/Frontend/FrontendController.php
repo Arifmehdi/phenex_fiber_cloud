@@ -277,7 +277,7 @@ class FrontendController extends Controller
 
     public function page($slug)
     {
-        $data['page'] = Page::whereActive('slug', $slug)->first();
+        $data['page'] = Page::where('active', 1)->where('slug', $slug)->first();
         return view('frontend.home.page_content', $data);
     }
 

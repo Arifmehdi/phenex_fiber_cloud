@@ -9,25 +9,31 @@
                     <div class="col-lg-10 col-sm-9 col-7 d-flex align-items-center justify-content-end position-static">
                         <div class="nav-wrapper w-100 d-flex justify-content-end justify-content-lg-center">
                             <ul class="nav">
-                                <li><a class="current-menu-parent" href="{{ route('home') }}">Home</a></li>
-                                <li><a href="#">Software</a></li>
-                                <li><a href="#">Telephony</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">IP</a></li>
-                                        <li><a href="#">Telephony</a></li>
-                                        <li><a href="#">IP PBX</a></li>
-                                        <li><a href="#">CRM</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{ route('team') }}">Team</a></li>
-                                <li><a href="{{ route('about') }}">About Us</a></li>
-                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                                                <li><a class="current-menu-parent" href="{{ route('home') }}">Home</a></li>
+                                @foreach ($headerMenus as $menu)
+                                    @php
+                                        $pages = $menu->latestPages();
+                                    @endphp
+                                    <li>
+                                        <a class="{{ request()->url() == ($menu->link ?? ($menu->slug ? route('page', $menu->slug) : '')) ? 'current-menu-parent' : '' }}" 
+                                           href="{{ $menu->link ?? ($menu->slug ? route('page', $menu->slug) : 'javascript:void(0)') }}">
+                                            {{ $menu->name_en }}
+                                        </a>
+                                        @if ($pages->count() > 0)
+                                            <ul class="sub-menu">
+                                                @foreach ($pages as $page)
+                                                    <li>
+                                                        <a href="{{ route('page', $page->slug) }}">
+                                                            {{ $page->name_en }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                                    {{--<li><a href="{{ route('about') }}">About Us</a></li>--}}
+                                    <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
                         <div class="d-flex align-items-center mr-2 mr-sm-3">
@@ -51,6 +57,23 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="user-login ml-sm-2 mr-2 mr-sm-3">
+                                @if(Auth::check())
+                                    <a href="{{ Auth::user()->hasRole('admin') ? route('admin.dashboard') : route('user.dashboard') }}">
+                                        <img src="{{ asset('frontend')}}/assets/img/icons/user.svg" alt="Profile" class="svg" style="width: 20px; height: 20px;">
+                                    </a>
+                                @else
+                                    <a href="{{ route('login') }}">
+                                        <img src="{{ asset('frontend')}}/assets/img/icons/user.svg" alt="Login" class="svg" style="width: 20px; height: 20px;">
+                                    </a>
+                                @endif
+                            </div>
+                            <style>
+                                .svg {
+                                        height: 17px;
+                                        width: auto; /* maintains aspect ratio */
+                                    }
+                            </style>
                             {{--<div class="flag-dropdown"><button class="dropdown-btn d-flex align-items-center"
                                     data-toggle="dropdown"><img src="{{ asset('frontend')}}/assets/img/icons/flag.png" alt="" class="flag">
                                     <img src="{{ asset('frontend')}}/assets/img/icons/down-arrow.svg" alt="" class="svg arrow"></button>

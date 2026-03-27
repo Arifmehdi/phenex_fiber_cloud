@@ -442,7 +442,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
     ]);
 
     // Delete a menu
-    Route::post('menu/delete/menu/{menu}', [
+    Route::get('menu/delete/menu/{menu}', [
         'uses' => 'App\Http\Controllers\Admin\MenuPageController@menuDelete',
         'as' => 'admin.menuDelete'
     ]);

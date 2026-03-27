@@ -115,6 +115,15 @@
                                             @enderror
                                         </div>
 
+                                        {{-- Description (Bangla) --}}
+                                        {{--<div class="form-group">
+                                            <label for="description_bn">Description (Bangla)</label>
+                                            <textarea name="description_bn" class="summernote form-control" rows="5" placeholder="Description Bangla">{{ old('description_bn') }}</textarea>
+                                            @error('description_bn')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>--}}
+
                                         {{-- Active & Editor Checkboxes + Submit Button --}}
                                         <div class="form-row mt-n2 mb-n3">
                                             <div class="col-md-6"></div>

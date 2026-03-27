@@ -458,10 +458,10 @@ class MenuPageController extends Controller
         if ($type == 'menu') {
             // Search menus by name or id
             $menus = Menu::where(function ($qq) use ($q) {
-                $qq->orWhere('name', 'like', "%{$q}%")
+                $qq->orWhere('name_en', 'like', "%{$q}%")
                 ->orWhere('id', 'like', "%{$q}%");
             })
-            ->orderBy('name')
+            ->orderBy('name_en')
             ->paginate(100);
 
             $menus->appends($request->all());

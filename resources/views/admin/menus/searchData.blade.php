@@ -15,7 +15,7 @@
         @if($menu->link)
              
         @else
-            <a title="Delete" class="float-right btn btn-light btn-xs ml-1" onclick="return confirm('Do you really want to delete?');"  onclick="return confirm('Do you really want to delete?')"
+            <a title="Delete" class="float-right btn btn-light btn-xs ml-1" onclick="return confirm('Do you really want to delete?');"
             href="{{ route('admin.menuDelete', $menu)}}"><i
             class="fas fa-times-circle text-danger"></i></a>
         @endif

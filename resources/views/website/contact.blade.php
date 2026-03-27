@@ -87,7 +87,7 @@
         border: 0;
     }
     </style>
-    <section class="faq pt-120 pb-120">
+    {{--<section class="faq pt-120 pb-120">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -251,7 +251,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
 @endsection
 
 @push('css')
