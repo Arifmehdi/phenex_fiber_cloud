@@ -42,7 +42,7 @@ class CompanyController extends Controller
 
         Company::create($data);
 
-        return redirect()->route('companies.index')->with('success', 'Company created successfully.');
+        return redirect()->route('companies.index')->with('success', 'Why we created successfully.');
     }
 
     public function edit($id)
@@ -74,7 +74,7 @@ class CompanyController extends Controller
 
         $company->update($data);
 
-        return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
+        return redirect()->route('companies.index')->with('success', 'Why we updated successfully.');
     }
 
     public function destroy($id)
@@ -82,6 +82,6 @@ class CompanyController extends Controller
         $company = Company::findOrFail($id);
         $company->delete();
 
-        return redirect()->route('companies.index')->with('success', 'Company deleted successfully.');
+        return redirect()->route('companies.index')->with('success', 'Why we deleted successfully.');
     }
 }

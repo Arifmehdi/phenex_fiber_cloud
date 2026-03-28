@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Cause List</h3>
+                    <h3 class="card-title">Price List</h3>
                     <a href="{{ route('admin.causes.create') }}" class="btn btn-primary float-right">Add New</a>
                 </div>
                 <div class="card-body">
@@ -19,10 +19,12 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Goal</th>
-                                <th>Raised</th>
+                                {{--<th>Image</th>--}}
+                                <th>Price Title</th>
+                                <th>Duration</th>
+                                <th>Price</th>
+                                <th>Discount Price</th>
+                                <th>Yearly Price</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -31,14 +33,16 @@
                             @foreach ($causes as $cause)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>
+                                    {{--<td>
                                         @if ($cause->image)
                                             <img src="{{ asset('storage/' . $cause->image) }}" alt="{{ $cause->title }}" width="50">
                                         @endif
-                                    </td>
+                                    </td>--}}
                                     <td>{{ $cause->title }}</td>
-                                    <td>{{ number_format($cause->goal_amount, 2) }}</td>
+                                    <td>{{ $cause->duration }}</td>
+                                    <td>{{ $cause->amount }}</td>
                                     <td>{{ number_format($cause->raised_amount, 2) }}</td>
+                                    <td>{{ number_format($cause->goal_amount, 2) }}</td>
                                     <td>
                                         @if ($cause->active)
                                             <span class="badge badge-success">Active</span>

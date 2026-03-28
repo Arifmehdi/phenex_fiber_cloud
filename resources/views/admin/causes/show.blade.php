@@ -12,14 +12,14 @@
                 <div class="card-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th style="width: 150px">Title</th>
+                            <th style="width: 150px">Price Title</th>
                             <td>{{ $cause->title }}</td>
                         </tr>
-                        <tr>
+                        {{--<tr>
                             <th>Slug</th>
                             <td>{{ $cause->slug }}</td>
-                        </tr>
-                        <tr>
+                        </tr>--}}
+                        {{--<tr>
                             <th>Image</th>
                             <td>
                                 @if ($cause->image)
@@ -28,23 +28,28 @@
                                     N/A
                                 @endif
                             </td>
-                        </tr>
-                        <tr>
+                        </tr>--}}
+                        {{--<tr>
                             <th>Short Description</th>
                             <td>{{ $cause->short_description ?? 'N/A' }}</td>
-                        </tr>
-                        <tr>
+                        </tr>--}}
+                        {{--<tr>
                             <th>Description</th>
                             <td>{!! $cause->description ?? 'N/A' !!}</td>
+                        </tr>--}}
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ number_format($cause->amount, 2) }}</td>
                         </tr>
                         <tr>
-                            <th>Goal Amount</th>
-                            <td>{{ number_format($cause->goal_amount, 2) }}</td>
-                        </tr>
-                        <tr>
-                            <th>Raised Amount</th>
+                            <th>Discount Price</th>
                             <td>{{ number_format($cause->raised_amount, 2) }}</td>
                         </tr>
+                        <tr>
+                            <th>Yearly Price</th>
+                            <td>{{ number_format($cause->goal_amount, 2) }}</td>
+                        </tr>
+
                         <tr>
                             <th>Active</th>
                             <td>
@@ -55,22 +60,22 @@
                                 @endif
                             </td>
                         </tr>
-                        <tr>
+                        {{--<tr>
                             <th>Added By</th>
                             <td>{{ $cause->addedBy->name ?? 'N/A' }}</td>
                         </tr>
                         <tr>
                             <th>Last Edited By</th>
                             <td>{{ $cause->editedBy->name ?? 'N/A' }}</td>
-                        </tr>
+                        </tr>--}}
                         <tr>
                             <th>Created At</th>
-                            <td>{{ $cause->created_at }}</td>
+                            <td>{{ $cause->created_at->format('F j, Y') }}</td>
                         </tr>
-                        <tr>
+                        {{--<tr>
                             <th>Updated At</th>
                             <td>{{ $cause->updated_at }}</td>
-                        </tr>
+                        </tr>--}}
                     </table>
                     <a href="{{ route('admin.causes.edit', $cause->id) }}" class="btn btn-warning mt-3">Edit Cause</a>
                 </div>

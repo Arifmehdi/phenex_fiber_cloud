@@ -13,12 +13,14 @@ class Cause extends Model
     protected $fillable = [
         'title',
         'slug',
+        'duration',
         'image',
         'short_description',
         'description',
         'active',
         'addedby_id',
         'editedby_id',
+        'amount',
         'goal_amount',
         'raised_amount',
     ];

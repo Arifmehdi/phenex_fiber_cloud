@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Company</h3>
+                    <h3 class="card-title">Edit Why We</h3>
                 </div>
                 <form action="{{ route('admin.companies.update', $company->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')

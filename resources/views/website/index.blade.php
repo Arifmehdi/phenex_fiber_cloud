@@ -283,7 +283,33 @@
                 </div>
             </div>
             <div class="row mb-4">
+                @forelse ($causes as $cause)
                 <div class="col-xl-3 col-sm-6">
+                    <div class="price-box {{ $cause->title == 'Premium Plan' ? 'active' : '' }}">
+                        <div class="price-head">
+                            <p>{{ $cause->title }}</p>
+                            <div class="plan">
+                                <h5>Get {{ $cause->duration }} Year Plan</h5>
+                            </div>
+                        </div>
+                        <div class="price-body">
+                            <div class="price"><span class="currency">$</span> <span class="value">{{ $cause->amount }}</span> <span
+                                    class="duration">/yrs</span></div>
+                            <p>Save 10%</p>
+                            <ul>
+                                <li><del>${{ $cause->raised_amount }}</del> <span>&nbsp;${{ $cause->goal_amount }} billed</span></li>
+                                <li>every {{ $cause->duration }} years</li>
+                            </ul>
+                            {{--<a href="#" class="btn btn-black btn-sm btn-shadow"><img
+                                    src="{{ asset('frontend')}}/assets/img/icons/btn-svg.svg" alt="" class="svg">buy now</a>--}}
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <p>There no price available now. </p>
+                 @endforelse   
+                 
+                {{--<div class="col-xl-3 col-sm-6">
                     <div class="price-box">
                         <div class="price-head">
                             <p>Basic Plan</p>
@@ -362,7 +388,7 @@
                                     src="{{ asset('frontend')}}/assets/img/icons/btn-svg.svg" alt="" class="svg">buy now</a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">

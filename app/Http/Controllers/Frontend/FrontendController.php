@@ -86,7 +86,7 @@ class FrontendController extends Controller
             ->where('is_approve', 1)->limit(6)->get();
 
         $data['newses'] = BlogPost::with('category')->whereActive(true)->get();
-        $data['causes_for_homepage'] = Cause::where('active', true)->latest()->limit(3)->get();
+        $data['causes'] = Cause::where('active', true)->get();
         // $data['sliders'] = FrontSlider::whereActive(true)
         //     ->select('featured_image','title','description','link')
         //     ->get();

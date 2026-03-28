@@ -1,13 +1,13 @@
 @csrf
 <div class="card-body">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $company->name ?? '') }}" required>
+        <label for="name">Title</label>
+        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Title" value="{{ old('name', $company->name ?? '') }}" required>
         @error('name')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
-    <div class="form-group">
+    {{--<div class="form-group">
         <label for="address">Address</label>
         <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror">{{ old('address', $company->address ?? '') }}</textarea>
         @error('address')
@@ -20,7 +20,7 @@
         @error('phone')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
-    </div>
+    </div>--}}
     <div class="form-group">
         <label for="img">Image</label>
         <input type="file" name="img" id="img" class="form-control-file @error('img') is-invalid @enderror">

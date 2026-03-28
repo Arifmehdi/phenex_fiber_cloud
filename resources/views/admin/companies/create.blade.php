@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add New Company</h3>
+                    <h3 class="card-title">Add New Why We</h3>
                 </div>
                 <form action="{{ route('admin.companies.store') }}" method="POST" enctype="multipart/form-data">
                     @include('admin.companies._form')

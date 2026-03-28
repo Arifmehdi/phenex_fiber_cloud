@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Company List</h3>
+                    <h3 class="card-title">Why we List</h3>
                     <a href="{{ route('admin.companies.create') }}" class="btn btn-primary float-right">Add New</a>
                 </div>
                 <div class="card-body">
@@ -20,9 +20,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Image</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Address</th>
+                                <th>Title</th>
+                                {{--<th>Phone</th>
+                                <th>Address</th>--}}
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -37,8 +37,8 @@
                                         @endif
                                     </td>
                                     <td>{{ $company->name }}</td>
-                                    <td>{{ $company->phone }}</td>
-                                    <td>{{ $company->address }}</td>
+                                    {{--<td>{{ $company->phone }}</td>
+                                    <td>{{ $company->address }}</td>--}}
                                     <td>
                                         @if ($company->active)
                                             <span class="badge badge-success">Active</span>

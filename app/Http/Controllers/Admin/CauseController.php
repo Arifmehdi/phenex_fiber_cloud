@@ -18,6 +18,7 @@ class CauseController extends Controller
      */
     public function index()
     {
+        menuSubmenu('causes', 'allCauses');
         $causes = Cause::latest()->paginate(10);
         return view('admin.causes.index', compact('causes'));
     }
@@ -29,6 +30,7 @@ class CauseController extends Controller
      */
     public function create()
     {
+        menuSubmenu('causes', 'createCause');
         return view('admin.causes.create');
     }
 
@@ -43,9 +45,11 @@ class CauseController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'short_description' => 'nullable|string',
             'description' => 'nullable|string',
-            'goal_amount' => 'required|numeric|min:0',
+            'short_description' => 'nullable|string',
+            'duration' => 'nullable|numeric|min:0',
+            'amount' => 'required|numeric|min:0',
+            'goal_amount' => 'nullable|numeric|min:0',
             'raised_amount' => 'nullable|numeric|min:0',
             'active' => 'boolean',
         ]);
@@ -62,7 +66,7 @@ class CauseController extends Controller
         Cause::create($data);
 
         return redirect()->route('admin.causes.index')
-                        ->with('success','Cause created successfully.');
+                        ->with('success','Price created successfully.');
     }
 
     /**
@@ -99,9 +103,11 @@ class CauseController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'short_description' => 'nullable|string',
             'description' => 'nullable|string',
-            'goal_amount' => 'required|numeric|min:0',
+            'short_description' => 'nullable|string',
+            'duration' => 'nullable|numeric|min:0',
+            'amount' => 'required|numeric|min:0',
+            'goal_amount' => 'nullable|numeric|min:0',
             'raised_amount' => 'nullable|numeric|min:0',
             'active' => 'boolean',
         ]);
@@ -126,7 +132,7 @@ class CauseController extends Controller
         $cause->update($data);
 
         return redirect()->route('admin.causes.index')
-                        ->with('success','Cause updated successfully');
+                        ->with('success','Price updated successfully');
     }
 
     /**
@@ -143,6 +149,6 @@ class CauseController extends Controller
         $cause->delete();
 
         return redirect()->route('admin.causes.index')
-                        ->with('success','Cause deleted successfully');
+                        ->with('success','Prcie deleted successfully');
     }
 }
