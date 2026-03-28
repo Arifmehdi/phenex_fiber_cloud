@@ -207,7 +207,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('sliders.index') }}" class="nav-link {{ session('lsbsm') == 'allFrontSlider' ? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Sliders</p>
+                                    <p>Main Slider</p>
                                 </a>
                             </li>
 
@@ -298,7 +298,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'departments'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-passport"></i>
                             <p>
-                                Department
+                                Services
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -306,13 +306,13 @@
                             <li class="nav-item">
                                 <a href="{{route('departments.index')}}" class="nav-link {{ session('lsbsm') == 'alldepartments' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Departments</p>
+                                    <p>All Services</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('departments.create')}}" class="nav-link {{ session('lsbsm') == 'createdepartments' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Deparments</p>
+                                    <p>Create Service</p>
                                 </a>
                             </li>
 
@@ -370,7 +370,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'posts'? ' active ' : ''}}">
                             <i class="nav-icon far fa-share-square"></i>
                             <p>
-                                News
+                                Blog Posts
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -393,13 +393,13 @@
                             <li class="nav-item">
                                 <a href="{{route('news.index')}}" class="nav-link {{ session('lsbsm') == 'allPosts' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All News</p>
+                                    <p>All Blog Posts</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('news.create')}}" class="nav-link {{ session('lsbsm') == 'storePost' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create News</p>
+                                    <p>Create Blog Post</p>
                                 </a>
                             </li>
 
@@ -437,7 +437,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'galleries' ? ' active ' : '' }}">
                             <i class="nav-icon fas fas fa-bell"></i>
                             <p>
-                                Galleries
+                                Brands
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -446,14 +446,14 @@
                                 <a href="{{ route('galleries.index') }}"
                                     class="nav-link {{ session('lsbsm') == 'all_gallery' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Galleries</p>
+                                    <p>All Brands</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('galleries.create') }}"
                                     class="nav-link {{ session('lsbsm') == 'create_gallery' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Gallery</p>
+                                    <p>Create Brand</p>
                                 </a>
                             </li>
 

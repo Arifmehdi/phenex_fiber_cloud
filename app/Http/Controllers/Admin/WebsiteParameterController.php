@@ -48,6 +48,16 @@ class WebsiteParameterController extends Controller
         $wp->about_subtitle = $request->about_subtitle;
         $wp->about_img = $request->about_us_image;
 
+        
+        $wp->service_title  = $request->service_title;
+        $wp->service_subtitle = $request->service_subtitle;
+        $wp->why_fb_cloud_title  = $request->why_fb_cloud_title;
+        $wp->why_fb_cloud_subtitle = $request->why_fb_cloud_subtitle;
+        $wp->price_title  = $request->price_title;
+        $wp->price_subtitle = $request->price_subtitle;
+        $wp->tips_title  = $request->tips_title;
+        $wp->tips_subtitle = $request->tips_subtitle;
+
         $wp->editedby_id = Auth::id();
 
 

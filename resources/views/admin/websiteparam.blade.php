@@ -237,7 +237,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="about_subtitle" class="control-label">Who We Are Sub-Title</label>
-                                            <textarea name="about_subtitle" class="form-control" rows="10" id="about_subtitle" placeholder="Write About Us in Bangla">{{ old('about_subtitle') ?: $websiteParameter->about_subtitle ?? '' }}</textarea>
+                                            <textarea name="about_subtitle" class="form-control summernote" rows="10" id="about_subtitle" placeholder="Write About Us in Bangla">{{ old('about_subtitle') ?: $websiteParameter->about_subtitle ?? '' }}</textarea>
                                         </div>
                                     </div>
 
@@ -273,6 +273,85 @@
                 </div>
 
                 <!-- about section end  -->
+
+                <!-- Home section Start -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card card-widget">
+                            <div class="card-header with-border">
+                                <h3 class="card-title">Home page content</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- service title / sub title English -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="service_title" class="control-label">Service Title</label>
+                                            <input type="text" name="service_title" class="form-control"  id="service_title" placeholder="About Title" value="{{ old('service_title') ?: $websiteParameter->service_title ?? '' }}">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="service_subtitle" class="control-label">Service Sub-Title</label>
+                                            <input type="text" name="service_subtitle" class="form-control"  id="service_subtitle" placeholder="Service Sub-Title" value="{{ old('service_subtitle') ?: $websiteParameter->service_subtitle ?? '' }}">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Why Fiber Cloud title / sub title English -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="why_fb_cloud_title" class="control-label">Why Fiber Cloud Title</label>
+                                            <input type="text" name="why_fb_cloud_title" class="form-control"  id="why_fb_cloud_title" placeholder="About Title" value="{{ old('why_fb_cloud_title') ?: $websiteParameter->why_fb_cloud_title ?? '' }}">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="why_fb_cloud_subtitle" class="control-label">Why Fiber Cloud Sub-Title</label>
+                                            <input type="text" name="why_fb_cloud_subtitle" class="form-control"  id="why_fb_cloud_subtitle" placeholder="Why Fiber Cloud Sub-Title" value="{{ old('why_fb_cloud_subtitle') ?: $websiteParameter->why_fb_cloud_subtitle ?? '' }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Price title / sub title English -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="price_title" class="control-label">Price Title</label>
+                                            <input type="text" name="price_title" class="form-control"  id="price_title" placeholder="Price Title" value="{{ old('price_title') ?: $websiteParameter->price_title ?? '' }}">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="price_subtitle" class="control-label">Price Sub-Title</label>
+                                            <input type="text" name="price_subtitle" class="form-control"  id="price_subtitle" placeholder="Price Sub-Title" value="{{ old('price_subtitle') ?: $websiteParameter->price_subtitle ?? '' }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Tips title / sub title English -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tips_title" class="control-label">Tips Title</label>
+                                            <input type="text" name="tips_title" class="form-control"  id="tips_title" placeholder="Tips Title" value="{{ old('tips_title') ?: $websiteParameter->tips_title ?? '' }}">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tips_subtitle" class="control-label">Tips Sub-Title</label>
+                                            <input type="text" name="tips_subtitle" class="form-control"  id="tips_subtitle" placeholder="Tips Sub-Title" value="{{ old('tips_subtitle') ?: $websiteParameter->tips_subtitle ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Home section end  -->
 
 
                {{-- <div class="row">
@@ -448,11 +527,6 @@
     </div>
 </div>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor.create(document.querySelector('#about_us_en')).catch(error => console.error(error));
-    ClassicEditor.create(document.querySelector('#about_us_bn')).catch(error => console.error(error));
-</script>
 <script>
         // Image previews remain same
     $('#logo').change(function(e){

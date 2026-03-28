@@ -85,11 +85,14 @@ class FrontendController extends Controller
         $data['volunteers'] = User::where('membership_type', 2)
             ->where('is_approve', 1)->limit(6)->get();
 
-        $data['newses'] = BlogPost::whereActive(true)->limit(3)->get();
+        $data['newses'] = BlogPost::with('category')->whereActive(true)->get();
         $data['causes_for_homepage'] = Cause::where('active', true)->latest()->limit(3)->get();
+        // $data['sliders'] = FrontSlider::whereActive(true)
+        //     ->select('featured_image','title','description','link')
+        //     ->get();
         $data['sliders'] = FrontSlider::whereActive(true)
             ->select('featured_image','title','description','link')
-            ->get();
+            ->first();
 
         return view('website.index', $data);  
     }

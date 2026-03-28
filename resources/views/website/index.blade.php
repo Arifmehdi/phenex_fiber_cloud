@@ -30,9 +30,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="banner-content">
-                        <p class="sub-title">our security our security</p>
-                        <h1>Total Security and Affordability</h1>
-                        <p>These strange and uncontrollable circumstances we<br>find ourselves in are challenging.</p>
+                        <p class="sub-title">Fiber Cloud</p>
+                        <h1>{{ $sliders->title }}</h1>
+                        <p>{{ $sliders->description }}</p>
+
                         {{--<div class="banner-btn-group">
                             <a href="price.html" class="btn">
                                 <img src="{{ asset('frontend')}}/assets/img/icons/btn-svg.svg" alt="" class="svg">
@@ -46,11 +47,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="banner-img d-none d-xl-block"><img src="{{ asset('frontend')}}/assets/img/media/main-img.png" alt="main img"
-                            data-rjs="2" class="main-img"> <img src="{{ asset('frontend')}}/assets/img/media/shield.png" alt="Shield"
-                            data-rjs="2" class="shield-img"> <img src="{{ asset('frontend')}}/assets/img/media/man1.png" alt="Man1"
-                            data-rjs="2" class="man1"> <img src="{{ asset('frontend')}}/assets/img/media/man2.png" alt="Man2" data-rjs="2"
-                            class="man2"> <img src="{{ asset('frontend')}}/assets/img/media/man3.png" alt="Man3" data-rjs="2" class="man3">
+                    <div class="banner-img d-none d-xl-block">
+                        <img src="{{ asset('frontend')}}/assets/img/media/main-img.png" alt="main img" data-rjs="2" class="main-img"> 
+                        <img src="{{ route('imagecache', ['template'=>'original','filename' => $sliders->fi()]) }}" alt="Shield" data-rjs="2" class="shield-img">
+                        {{--<img src="{{ asset('frontend')}}/assets/img/media/shield.png" alt="Shield" data-rjs="2" class="shield-img"> --}}
+                        <img src="{{ asset('frontend')}}/assets/img/media/man1.png" alt="Man1"data-rjs="2" class="man1"> 
+                        <img src="{{ asset('frontend')}}/assets/img/media/man2.png" alt="Man2" data-rjs="2" class="man2"> 
+                        <img src="{{ asset('frontend')}}/assets/img/media/man3.png" alt="Man3" data-rjs="2" class="man3">
                         <img src="{{ asset('frontend')}}/assets/img/media/man4.png" alt="Man4" data-rjs="2" class="man4"></div>
                     <div class="banner-img-responsive d-block d-xl-none"><img src="{{ asset('frontend')}}/assets/img/media/banner-img.png"
                             data-rjs="2" alt=""></div>
@@ -63,15 +66,27 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2>Real Online Threats</h2>
-                        <p>Data thieves look for unprotected devices, and those that do not use encryption<br>are easy
-                            targets. It is easy for advertisers to influence</p>
+                        <h2>{{ $ws->service_title }}</h2>
+                        <p>{!! $ws->service_subtitle !!}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center pattern-wrap"><img src="{{ asset('frontend')}}/assets/img/media/threat-pattern.png" alt=""
                     class="pattern">
+                @forelse ($departments as $department)
                 <div class="col-lg-4 col-md-6">
+                    <div class="single-online-thread">
+                        <div class="img"><img src="{{ route('imagecache', ['template'=>'original','filename' => $department->fi()]) }}" data-rjs="2" alt=""></div>
+                        <div class="content">
+                            <h4>{{$department->name_en}}</h4>
+                            <p>{{$department->excerpt_en}}</p>
+                        </div>
+                    </div>
+                </div>
+                @empty 
+                <p>There no slider available now. </p>
+                @endforelse
+                {{--<div class="col-lg-4 col-md-6">
                     <div class="single-online-thread">
                         <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/threat1.png" data-rjs="2" alt=""></div>
                         <div class="content">
@@ -100,7 +115,7 @@
                                 targets.</p>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </section>
@@ -109,9 +124,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2>Why Use Fiber Cloud ?</h2>
-                        <p>Data thieves look for unprotected devices, and those that do not use encryption<br>are easy
-                            targets. It is easy for advertisers to influence</p>
+                        <h2>{{ $ws->why_fb_cloud_title }}</h2>
+                        <p>{!! $ws->why_fb_cloud_subtitle !!}</p>
                     </div>
                 </div>
             </div>
@@ -146,30 +160,21 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="section-title style--two">
-                                            <h2>Go Beyonds Basic VPN Protection</h2>
-                                            <p>Data thieves look for unprotected devices & those that do not use to this
-                                                encryption are easy targets. These types of attacks are common, and it’s
-                                                difficult to avoid them without protection.</p>
+                                            <h2>{{ $ws->about_title}}</h2>
+                                            <p>{!! $ws->about_subtitle !!}</p>
                                         </div>
-                                        <ul class="list-dot list-unstyled">
-                                            <li>
-                                                <h5>Verified by experts</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                            <li>
-                                                <h5>Secure access</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="browsing-history" role="tabpanel">
                                 <div class="row align-items-center">
+                                    @php
+                                        $imagePath = $ws->about_img
+                                            ? asset('storage/s/' . $ws->about_img)
+                                            : asset('frontend/assets/img/media/tab2.png');
+                                    @endphp
                                     <div class="col-lg-6">
-                                        <div class="tab-img"><img src="{{ asset('frontend')}}/assets/img/media/tab2.png" data-rjs="2" alt="">
+                                        <div class="tab-img"><img src="{{ $imagePath }}" data-rjs="2" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -272,9 +277,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2>Check Our Pricing Plan</h2>
-                        <p>Data thieves look for unprotected devices, and those that do not use encryption<br>are easy
-                            targets. It is easy for advertisers to influence</p>
+                        <h2>{{ $ws->price_title }}</h2>
+                        <p>{!! $ws->price_subtitle !!}</p>
                     </div>
                 </div>
             </div>
@@ -377,7 +381,7 @@
                     <div class="subscribe-newsletter text-center">
                         <h3>Subscribe Newsletter</h3>
                         <form
-                            action="https://themelooks.us13.list-manage.com/subscribe/post?u=79f0b132ec25ee223bb41835f&amp;id=f4e0e93d1d"
+                            action="#"
                             class="newsletter-form" target="_blank"><input type="email" class="form-control"
                                 placeholder="Email Address Here..."> <button type="submit"><img
                                     src="{{ asset('frontend')}}/assets/img/icons/paper.svg" alt="" class="svg"></button></form>
@@ -422,14 +426,35 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2>Our Insight, Tips & Tricks</h2>
-                        <p>Data thieves look for unprotected devices, and those that do not use encryption<br>are easy
-                            targets. It is easy for advertisers to influence</p>
+                        <h2>{{ $ws->tips_title }}</h2>
+                        <p>{!! $ws->tips_subtitle !!}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
+                @forelse ($newses as $news)
                 <div class="col-lg-4 col-md-6">
+                    <div class="single-blog"><a href="blog-details.html" class="blog-img"><img
+                                src="{{ route('imagecache', ['template'=>'cpmd','filename' => $news->fi()]) }}" alt="" data-rjs="2"></a>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <ul class="list-inline">
+                                    <li><a href="#" class="posted-by"><img src="{{ asset('frontend')}}/assets/img/icons/user.svg" alt=""
+                                                class="svg"> {{ $news->category->name }}</a></li>
+                                    <li><a href="#" class="posted-on"><img src="{{ asset('frontend')}}/assets/img/icons/calendar.svg" alt=""
+                                                class="svg">{{ $news->created_at->format('F d, Y') }}</a></li>
+                                </ul>
+                            </div>
+                            <h4><a href="#">{{ \Illuminate\Support\Str::limit($news->title, 45, '...') }}</a></h4><a
+                                href="#" class="btn-link"><img src="{{ asset('frontend')}}/assets/img/icons/btn-svg2.svg"
+                                    alt="" class="svg">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <p>There have no new blogs</p>
+                @endforelse
+                {{--<div class="col-lg-4 col-md-6">
                     <div class="single-blog"><a href="blog-details.html" class="blog-img"><img
                                 src="{{ asset('frontend')}}/assets/img/blog/blog_img.png" alt="" data-rjs="2"></a>
                         <div class="blog-content">
@@ -482,7 +507,7 @@
                                     alt="" class="svg">Read More</a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </section>
@@ -493,12 +518,17 @@
                     <div class="logo-carousel owl-carousel" data-owl-items="6" data-owl-margin="30"
                         data-owl-autoplay="false"
                         data-owl-responsive='{"0": {"items": "2"}, "500": {"items": "3"}, "767": {"items": "4"}, "992": {"items": "5"}, "1200": {"items": "6"}}'>
-                        <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo1.png" alt=""></div>
+                        @forelse ($galleries as $gallery)
+                        <div class="single-logo"><img src="{{ asset('storage/galleries/' . $gallery->featured_image) }}" alt=""></div>
+                        @empty 
+                        <p>There have no brands to display.</p>
+                        @endforelse
+                        {{--<div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo1.png" alt=""></div>
                         <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo2.png" alt=""></div>
                         <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo3.png" alt=""></div>
                         <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo4.png" alt=""></div>
                         <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo5.png" alt=""></div>
-                        <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo6.png" alt=""></div>
+                        <div class="single-logo"><img src="{{ asset('frontend')}}/assets/img/media/logo6.png" alt=""></div>--}}
                     </div>
                 </div>
             </div>

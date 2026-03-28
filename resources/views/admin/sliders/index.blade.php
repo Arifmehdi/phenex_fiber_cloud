@@ -3,7 +3,7 @@
 
 @section('body')
    <section class="pt-5">
-    <div class="card shadow bg-info">
+    {{--<div class="card shadow bg-info">
         <div class="card-header">
             <div class="card-title">Front Slider</div>
         </div>
@@ -60,10 +60,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
     <div class="card">
         <div class="card-header bg-info">
-            <div class="card-title">All Sliders</div>
+            <div class="card-title">Main Slider</div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -87,11 +87,11 @@
                             <td class="d-flex">
                             <a href="{{route('sliders.edit',$slider)}}" data-toggle="modal" data-target="#fsedit{{$slider->id}}" class="text-success mr-2"><i class="fas fa-edit"></i></a>
 
-                            <form action="{{route('sliders.destroy', $slider) }}" method="post">
+                            {{--<form action="{{route('sliders.destroy', $slider) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button href="{{route('sliders.destroy', $slider)}}" class="text-danger" onclick="return confirm('Are you sure? you want to delete this Slider Item?')" style="all:unset; cursor: pointer;"><i class="fas fa-trash"></i></button>
-                            </form>
+                            </form>--}}
 
                             </td>
 
