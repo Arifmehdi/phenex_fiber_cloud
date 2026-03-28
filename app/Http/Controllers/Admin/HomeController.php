@@ -18,6 +18,7 @@ use App\Models\Cause;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\ProductCategory;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,11 +28,13 @@ class HomeController extends Controller
         $membership = User::where('membership_type',1)->get()->count();
         $volunteer = User::where('membership_type',2)->get()->count();
         $cat = ProductCategory::where('parent_id', null)->get()->count();
+        $department = Department::get()->count();
         $news = BlogPost::get()->count();
         $causes = Cause::get()->count();
-        $orders = Order::get()->count();
-        $products = Product::latest()->take(10)->get();
-        return view('admin.index',compact('cat','products', 'orders', 'causes', 'volunteer', 'membership','news'));
+        // $orders = Order::get()->count();
+        // $products = Product::latest()->take(10)->get();
+        // return view('admin.index',compact('cat','products', 'orders', 'causes', 'volunteer', 'membership','news'));
+        return view('admin.index',compact('cat', 'causes', 'volunteer', 'membership','news', 'department'));
     }
 
 

@@ -13,7 +13,7 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <div>
                         <h4 class="text-white mb-1">{{ $causes }}</h4>
-                        <h6 class="text-white mb-0">All Cause</h6>
+                        <h6 class="text-white mb-0">All Prices</h6>
                     </div>
                     <div style="width: 45px; height: 50px;">
                         <canvas id="chart-products" height="50"></canvas>
@@ -48,15 +48,15 @@
             <div class="card w3-teal shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <div>
-                        <h4 class="text-white mb-1">{{ $volunteer }}</h4>
-                        <h6 class="text-white mb-0">All Volunteer</h6>
+                        <h4 class="text-white mb-1">{{ $department }}</h4>
+                        <h6 class="text-white mb-0">All Services</h6>
                     </div>
                     <div style="width: 45px; height: 50px;">
                         <canvas id="chart-users" height="50"></canvas>
                     </div>
                 </div>
                 <div class="card-footer text-center border-top border-light">
-                    <a href="{{ route('admin.user') }}" class="text-white">View All</a>
+                    <a href="{{ route('departments.index') }}" class="text-white">View All</a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <div>
                         <h4 class="text-white mb-1">{{ $news }}</h4>
-                        <h6 class="text-white mb-0">All News</h6>
+                        <h6 class="text-white mb-0">All Tips</h6>
                     </div>
                     <div style="width: 45px; height: 50px;">
                         <canvas id="chart-doctors" height="50"></canvas>
