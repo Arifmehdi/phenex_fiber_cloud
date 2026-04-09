@@ -754,6 +754,60 @@
                    
                    
 
+                    <li class="nav-item {{ session('lsbm') == 'cloudcontent'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'cloudcontent'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-cloud"></i>
+                            <p>
+                                Cloud Content
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('sections.index')}}" class="nav-link {{ session('lsbsm') == 'allSections'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Sections</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('titles.index')}}" class="nav-link {{ session('lsbsm') == 'allTitles'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Titles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('subtitles.index')}}" class="nav-link {{ session('lsbsm') == 'allSubTitles'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All SubTitles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('contents.index')}}" class="nav-link {{ session('lsbsm') == 'allContents'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Contents</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('features.index')}}" class="nav-link {{ session('lsbsm') == 'allFeatures'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Features</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('pricings.index')}}" class="nav-link {{ session('lsbsm') == 'allPricings'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Pricings</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('section-setups.index')}}" class="nav-link {{ session('lsbsm') == 'allSetups'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section Setups</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item {{ session('lsbm') == 'websiteparam'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'websiteparam'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-desktop"></i>

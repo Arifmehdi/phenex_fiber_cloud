@@ -10,7 +10,7 @@ class SectionSetup extends Model
 {
     use HasFactory;
 
-    protected $table = 'section_setups';
+    protected $table = 'sections_setups';
 
     protected $fillable = [
         'section_id',
