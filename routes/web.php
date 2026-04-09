@@ -24,7 +24,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WebsiteHomeController;
 use App\Http\Controllers\WishlistController;
+
+
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\TitleController;
+use App\Http\Controllers\Admin\SubTitleController;
+use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\PricingController;
+use App\Http\Controllers\Admin\SectionSetupController;
+
+
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\SslCommerzPaymentController;
@@ -82,6 +93,18 @@ Route::get('/{id}/search', [WebsiteHomeController::class, 'store'] )->name('hote
 Route::get('/contact',[ContactController::class,'contact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 // flutrust exclusive end
+
+
+
+Route::resources([
+    'sections' => SectionController::class,
+    'titles' => TitleController::class,
+    'subtitles' => SubTitleController::class,
+    'contents' => ContentController::class,
+    'features' => FeatureController::class,
+    'pricings' => PricingController::class,
+    'section-setups' => SectionSetupController::class,
+]);
 
 
 // // SSLCOMMERZ Start
