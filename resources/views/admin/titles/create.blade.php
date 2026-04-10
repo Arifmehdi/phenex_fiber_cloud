@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label for="side_note">Side Note</label>
-                        <textarea name="side_note" id="side_note" class="form-control @error('side_note') is-invalid @enderror" placeholder="Enter side note" rows="3">{{old('side_note')}}</textarea>
+                        <textarea name="side_note" id="side_note" class="form-control summernote @error('side_note') is-invalid @enderror" placeholder="Enter side note">{{old('side_note')}}</textarea>
                         @error('side_note')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

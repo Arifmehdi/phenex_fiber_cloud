@@ -14,7 +14,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="section_id">Section <span class="text-danger">*</span></label>
-                                <select name="section_id" id="section_id" class="form-control @error('section_id') is-invalid @enderror" required>
+                                <select name="section_id" id="section_id" class="form-control select2bs4 @error('section_id') is-invalid @enderror" required>
                                     <option value="">Select Section</option>
                                     @foreach($sections as $section)
                                         <option value="{{$section->id}}" {{ old('section_id') == $section->id ? 'selected' : '' }}>{{$section->section_name}}</option>
@@ -29,7 +29,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="title_id">Title <span class="text-danger">*</span></label>
-                                <select name="title_id" id="title_id" class="form-control @error('title_id') is-invalid @enderror" required>
+                                <select name="title_id" id="title_id" class="form-control select2bs4 @error('title_id') is-invalid @enderror" required>
                                     <option value="">Select Title</option>
                                     @foreach($titles as $title)
                                         <option value="{{$title->id}}" {{ old('title_id') == $title->id ? 'selected' : '' }}>{{$title->title}}</option>
@@ -46,7 +46,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="sub_title_id">SubTitle <span class="text-danger">*</span></label>
-                                <select name="sub_title_id" id="sub_title_id" class="form-control @error('sub_title_id') is-invalid @enderror" required>
+                                <select name="sub_title_id" id="sub_title_id" class="form-control select2bs4 @error('sub_title_id') is-invalid @enderror" required>
                                     <option value="">Select SubTitle</option>
                                     @foreach($subtitles as $subtitle)
                                         <option value="{{$subtitle->id}}" {{ old('sub_title_id') == $subtitle->id ? 'selected' : '' }}>{{$subtitle->title}}</option>
@@ -61,7 +61,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="content_id">Content <span class="text-danger">*</span></label>
-                                <select name="content_id" id="content_id" class="form-control @error('content_id') is-invalid @enderror" required>
+                                <select name="content_id" id="content_id" class="form-control select2bs4 @error('content_id') is-invalid @enderror" required>
                                     <option value="">Select Content</option>
                                     @foreach($contents as $content)
                                         <option value="{{$content->id}}" {{ old('content_id') == $content->id ? 'selected' : '' }}>{{ Str::limit($content->content, 50) }}</option>
@@ -93,7 +93,7 @@
 
                     <div class="form-group">
                         <label for="features">Features</label>
-                        <select name="features[]" id="features" class="form-control @error('features') is-invalid @enderror" multiple="multiple">
+                        <select name="features[]" id="features" class="form-control select2bs4 @error('features') is-invalid @enderror" multiple="multiple">
                             @foreach($features as $feature)
                                 <option value="{{$feature->id}}">{{$feature->feature}}</option>
                             @endforeach
@@ -106,7 +106,7 @@
 
                     <div class="form-group">
                         <label for="side_note">Side Note</label>
-                        <textarea name="side_note" id="side_note" class="form-control @error('side_note') is-invalid @enderror" placeholder="Enter side note" rows="3">{{old('side_note')}}</textarea>
+                        <textarea name="side_note" id="side_note" class="form-control summernote @error('side_note') is-invalid @enderror" placeholder="Enter side note">{{old('side_note')}}</textarea>
                         @error('side_note')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

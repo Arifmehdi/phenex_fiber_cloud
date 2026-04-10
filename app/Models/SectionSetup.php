@@ -42,6 +42,6 @@ class SectionSetup extends Model
     }
 
     public function features(){
-        return $this->belongsToMany(Feature::class, 'section_setup_features');
+        return $this->belongsToMany(Feature::class, 'sections_setup_features', 'sections_setup_id', 'feature_id');
     }
 }

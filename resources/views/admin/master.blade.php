@@ -766,43 +766,43 @@
                             <li class="nav-item">
                                 <a href="{{route('sections.index')}}" class="nav-link {{ session('lsbsm') == 'allSections'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Sections</p>
+                                    <p>Section Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('titles.index')}}" class="nav-link {{ session('lsbsm') == 'allTitles'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Titles</p>
+                                    <p>Title Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('subtitles.index')}}" class="nav-link {{ session('lsbsm') == 'allSubTitles'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All SubTitles</p>
+                                    <p>Subtitle Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('contents.index')}}" class="nav-link {{ session('lsbsm') == 'allContents'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Contents</p>
+                                    <p>Content Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('features.index')}}" class="nav-link {{ session('lsbsm') == 'allFeatures'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Features</p>
+                                    <p>Feature Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('pricings.index')}}" class="nav-link {{ session('lsbsm') == 'allPricings'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Pricings</p>
+                                    <p>Pricing Management</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('section-setups.index')}}" class="nav-link {{ session('lsbsm') == 'allSetups'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Section Setups</p>
+                                    <p>Section Setup Management</p>
                                 </a>
                             </li>
                         </ul>
@@ -946,9 +946,9 @@
         });
 
 
-        // $('.select2bs4').select2({
-        //     theme: 'bootstrap4'
-        // })
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
 
 
         // CodeMirror

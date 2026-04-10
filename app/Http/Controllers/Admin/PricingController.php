@@ -10,11 +10,13 @@ use Illuminate\Http\Request;
 class PricingController extends Controller
 {
     public function index(){
+        menuSubmenu('cloudcontent', 'allPricings');
         $data = Pricing::with('section')->paginate(20);
         return view('admin.pricings.index', compact('data'));
     }
 
     public function create(){
+        menuSubmenu('cloudcontent', 'allPricings');
         $sections = Section::all();
         return view('admin.pricings.create', compact('sections'));
     }

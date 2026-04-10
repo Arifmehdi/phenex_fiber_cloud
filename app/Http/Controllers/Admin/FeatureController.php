@@ -10,11 +10,13 @@ use Illuminate\Http\Request;
 class FeatureController extends Controller
 {
     public function index(){
+        menuSubmenu('cloudcontent', 'allFeatures');
         $data = Feature::with('section')->paginate(20);
         return view('admin.features.index', compact('data'));
     }
 
     public function create(){
+        menuSubmenu('cloudcontent', 'allFeatures');
         $sections = Section::all();
         return view('admin.features.create', compact('sections'));
     }

@@ -9,11 +9,13 @@ use Illuminate\Http\Request;
 class SubTitleController extends Controller
 {
     public function index(){
+        menuSubmenu('cloudcontent', 'allSubTitles');
         $data = SubTitle::paginate(20);
         return view('admin.subtitles.index', compact('data'));
     }
 
     public function create(){
+        menuSubmenu('cloudcontent', 'allSubTitles');
         return view('admin.subtitles.create');
     }
 

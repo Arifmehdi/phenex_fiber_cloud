@@ -9,11 +9,13 @@ use Illuminate\Http\Request;
 class SectionController extends Controller
 {
     public function index(){
+        menuSubmenu('cloudcontent', 'allSections');
         $data = Section::latest()->paginate(20);
         return view('admin.sections.index', compact('data'));
     }
 
     public function create(){
+        menuSubmenu('cloudcontent', 'allSections');
         return view('admin.sections.create');
     }
 

@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="section_id">Section <span class="text-danger">*</span></label>
-                        <select name="section_id" id="section_id" class="form-control @error('section_id') is-invalid @enderror" required>
+                        <select name="section_id" id="section_id" class="form-control select2bs4 @error('section_id') is-invalid @enderror" required>
                             <option value="">Select Section</option>
                             @foreach($sections as $section)
                                 <option value="{{$section->id}}" {{ old('section_id', $data->section_id) == $section->id ? 'selected' : '' }}>{{$section->section_name}}</option>
@@ -34,7 +34,7 @@
 
                     <div class="form-group">
                         <label for="side_note">Side Note</label>
-                        <textarea name="side_note" id="side_note" class="form-control @error('side_note') is-invalid @enderror" placeholder="Enter side note" rows="3">{{old('side_note', $data->side_note)}}</textarea>
+                        <textarea name="side_note" id="side_note" class="form-control summernote @error('side_note') is-invalid @enderror" placeholder="Enter side note">{{old('side_note', $data->side_note)}}</textarea>
                         @error('side_note')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

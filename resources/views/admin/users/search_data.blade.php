@@ -21,16 +21,16 @@
 
 
                 <div class="dropdown show">
-                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
                         Action
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
                         <a class="dropdown-item" href="{{route('admin.edit-user',$user->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                        <a class="dropdown-item" href="{{route('admin.show-user',$user->id)}}"><i class="fa fa-eye"></i> Show</a>
+                        <a class="dropdown-item" href="{{route('admin.show-user',$user->id)}}"><i class="fas fa-eye"></i> Show</a>
                         {{-- <a class="dropdown-item" href="{{ route('patient.allvists',$user->id) }}"><i class="fas fa-users"></i> All Visits</a> --}}
-                        <a class="dropdown-item" href="{{route('admin.delete-user',$user->id)}}"><i class="fa fa-trash"> Delete</i></a>
+                        <a class="dropdown-item" href="{{route('admin.delete-user',$user->id)}}" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</a>
 
                     </div>
                 </div>
