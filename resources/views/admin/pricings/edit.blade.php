@@ -37,7 +37,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="currency">Currency <span class="text-danger">*</span></label>
-                                <input type="text" name="currency" id="currency" class="form-control @error('currency') is-invalid @enderror" value="{{old('currency', $data->currency)}}" placeholder="e.g., USD, BDT, EUR" required>
+                                <select name="currency" id="currency" class="form-control @error('currency') is-invalid @enderror" required>
+                                    <option value="">Select Currency</option>
+                                    <option value="৳" {{ old('currency', $data->currency) == '৳' ? 'selected' : '' }}>Taka (BDT) - ৳</option>
+                                    <option value="$" {{ old('currency', $data->currency) == '$' ? 'selected' : '' }}>Dollar (USD) - $</option>
+                                </select>
                                 @error('currency')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
