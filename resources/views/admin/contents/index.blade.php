@@ -40,19 +40,19 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <a href="{{route('contents.edit',$item->id)}}" class="btn btn-xs btn-outline-primary" title="Edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <form action="{{route('contents.destroy',$item->id)}}" method="post" style="display:inline;" onclick="return confirm('Are you sure?');">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-xs btn-outline-danger" title="Delete">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                </form>
+                                                <div class="dropdown show">
+                                                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" href="{{route('contents.edit',$item->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                        <a class="dropdown-item" href="{{route('contents.destroy',$item->id)}}" onclick="return confirm('Are you sure?');" style="cursor:pointer;"><i class="fas fa-trash"></i> Delete</a>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td>{{ Str::limit($item->content, 100) }}</td>
-                                            <td>{{ $item->side_note }}</td>
+                                            <td>{{ Str::limit(strip_tags($item->content), 100) }}</td>
+                                            <td>{{ strip_tags($item->side_note) }}</td>
                                         </tr>
                                     @empty
                                         <tr>

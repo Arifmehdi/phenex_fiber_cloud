@@ -11,6 +11,7 @@ use App\Models\Gallery;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Page;
+use App\Models\SectionSetup;
 use App\Models\Product;
 use App\Models\District;
 use App\Models\ProductCategory;
@@ -280,7 +281,20 @@ class FrontendController extends Controller
 
     public function page($slug)
     {
-        $data['page'] = Page::where('active', 1)->where('slug', $slug)->first();
+        $page = Page::where('active', 1)->where('slug', $slug)->first();
+        
+        abort_if(!$page, 404);
+        
+        $sectionSetups = SectionSetup::with([
+            'section', 'title', 'subTitle', 'content', 'pricing', 'features'
+        ])
+        ->where('page_id', $page->id)
+        ->where('active', 1)
+        ->get();
+        
+        $data['page'] = $page;
+        $data['sectionSetups'] = $sectionSetups;
+        
         return view('frontend.home.page_content', $data);
     }
 

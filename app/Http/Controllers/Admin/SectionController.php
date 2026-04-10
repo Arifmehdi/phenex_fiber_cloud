@@ -22,6 +22,7 @@ class SectionController extends Controller
     public function store(Request $r){
         $r->validate([
             'section_name' => 'required|string|max:255',
+            'template' => 'nullable|string|max:255',
             'serial' => 'nullable|integer',
             'page' => 'nullable|string|max:255',
             'status' => 'nullable|in:0,1',
@@ -39,6 +40,7 @@ class SectionController extends Controller
     public function update(Request $r, $id){
         $r->validate([
             'section_name' => 'required|string|max:255',
+            'template' => 'nullable|string|max:255',
             'serial' => 'nullable|integer',
             'page' => 'nullable|string|max:255',
             'status' => 'nullable|in:0,1',

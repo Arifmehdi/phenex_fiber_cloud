@@ -18,8 +18,14 @@ class SectionSetup extends Model
         'sub_title_id',
         'content_id',
         'pricing_id',
-        'side_note'
+        'page_id',
+        'side_note',
+        'active'
     ];
+
+    public function page(){
+        return $this->belongsTo(Page::class);
+    }
 
     public function section(){
         return $this->belongsTo(Section::class);

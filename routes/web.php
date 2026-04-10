@@ -106,6 +106,8 @@ Route::resources([
     'section-setups' => SectionSetupController::class,
 ]);
 
+Route::get('section-setups/{id}/toggle-active', [SectionSetupController::class, 'toggleActive'])->name('section-setups.toggleActive');
+
 
 // // SSLCOMMERZ Start
 // Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

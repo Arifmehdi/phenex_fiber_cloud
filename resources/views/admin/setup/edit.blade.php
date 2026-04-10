@@ -29,8 +29,26 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="title_id">Title <span class="text-danger">*</span></label>
-                                <select name="title_id" id="title_id" class="form-control select2bs4 @error('title_id') is-invalid @enderror" required>
+                                <label for="page_id">Page</label>
+                                <select name="page_id" id="page_id" class="form-control select2bs4 @error('page_id') is-invalid @enderror">
+                                    <option value="">Select Page (Optional)</option>
+                                    @foreach($pages as $page)
+                                        <option value="{{$page->id}}" {{ old('page_id', $data->page_id) == $page->id ? 'selected' : '' }}>{{$page->name_en}}</option>
+                                    @endforeach
+                                </select>
+                                <small class="text-muted">Assign this section setup to a specific page</small>
+                                @error('page_id')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title_id">Title</label>
+                                <select name="title_id" id="title_id" class="form-control select2bs4 @error('title_id') is-invalid @enderror">
                                     <option value="">Select Title</option>
                                     @foreach($titles as $title)
                                         <option value="{{$title->id}}" {{ old('title_id', $data->title_id) == $title->id ? 'selected' : '' }}>{{$title->title}}</option>
@@ -41,13 +59,11 @@
                                 @enderror
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="sub_title_id">SubTitle <span class="text-danger">*</span></label>
-                                <select name="sub_title_id" id="sub_title_id" class="form-control select2bs4 @error('sub_title_id') is-invalid @enderror" required>
+                                <label for="sub_title_id">SubTitle</label>
+                                <select name="sub_title_id" id="sub_title_id" class="form-control select2bs4 @error('sub_title_id') is-invalid @enderror">
                                     <option value="">Select SubTitle</option>
                                     @foreach($subtitles as $subtitle)
                                         <option value="{{$subtitle->id}}" {{ old('sub_title_id', $data->sub_title_id) == $subtitle->id ? 'selected' : '' }}>{{$subtitle->title}}</option>
@@ -58,11 +74,13 @@
                                 @enderror
                             </div>
                         </div>
+                    </div>
 
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="content_id">Content <span class="text-danger">*</span></label>
-                                <select name="content_id" id="content_id" class="form-control select2bs4 @error('content_id') is-invalid @enderror" required>
+                                <label for="content_id">Content</label>
+                                <select name="content_id" id="content_id" class="form-control select2bs4 @error('content_id') is-invalid @enderror">
                                     <option value="">Select Content</option>
                                     @foreach($contents as $content)
                                         <option value="{{$content->id}}" {{ old('content_id', $data->content_id) == $content->id ? 'selected' : '' }}>{{ Str::limit($content->content, 50) }}</option>
@@ -71,6 +89,15 @@
                                 @error('content_id')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group mt-4">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="active" name="active" value="1" {{ old('active', $data->active) ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="active">Active (Show on frontend)</label>
+                                </div>
                             </div>
                         </div>
                     </div>

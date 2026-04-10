@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="content">Content <span class="text-danger">*</span></label>
-                        <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" placeholder="Enter content" rows="5" required>{{old('content')}}</textarea>
+                        <textarea name="content" id="content" class="form-control summernote @error('content') is-invalid @enderror" placeholder="Enter content" required>{{old('content')}}</textarea>
                         @error('content')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label for="side_note">Side Note</label>
-                        <textarea name="side_note" id="side_note" class="form-control @error('side_note') is-invalid @enderror" placeholder="Enter side note" rows="3">{{old('side_note')}}</textarea>
+                        <textarea name="side_note" id="side_note" class="form-control summernote @error('side_note') is-invalid @enderror" placeholder="Enter side note">{{old('side_note')}}</textarea>
                         @error('side_note')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

@@ -52,7 +52,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->side_note }}</td>
+                                            <td>{{ strip_tags($item->side_note) }}</td>
                                         </tr>
                                     @empty
                                         <tr>

@@ -18,6 +18,32 @@
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                        <label for="template">Template Style</label>
+                        <select name="template" id="template" class="form-control @error('template') is-invalid @enderror">
+                            <option value="">Select Template</option>
+                            <option value="hero" {{ old('template') == 'hero' ? 'selected' : '' }}>Hero / Banner</option>
+                            <option value="about" {{ old('template') == 'about' ? 'selected' : '' }}>About / Story</option>
+                            <option value="services" {{ old('template') == 'services' ? 'selected' : '' }}>Services Grid (with Icons)</option>
+                            <option value="services_simple" {{ old('template') == 'services_simple' ? 'selected' : '' }}>Services Grid (Simple)</option>
+                            <option value="features" {{ old('template') == 'features' ? 'selected' : '' }}>Features List</option>
+                            <option value="pricing" {{ old('template') == 'pricing' ? 'selected' : '' }}>Pricing Card</option>
+                            <option value="pricing_table" {{ old('template') == 'pricing_table' ? 'selected' : '' }}>Pricing Table</option>
+                            <option value="cta" {{ old('template') == 'cta' ? 'selected' : '' }}>Call to Action</option>
+                            <option value="contact" {{ old('template') == 'contact' ? 'selected' : '' }}>Contact Section</option>
+                            <option value="testimonial" {{ old('template') == 'testimonial' ? 'selected' : '' }}>Testimonials</option>
+                            <option value="team" {{ old('template') == 'team' ? 'selected' : '' }}>Team Members</option>
+                            <option value="faq" {{ old('template') == 'faq' ? 'selected' : '' }}>FAQ</option>
+                            <option value="blog" {{ old('template') == 'blog' ? 'selected' : '' }}>Blog Posts</option>
+                            <option value="gallery" {{ old('template') == 'gallery' ? 'selected' : '' }}>Gallery</option>
+                            <option value="default" {{ old('template') == 'default' ? 'selected' : '' }}>Default / Generic</option>
+                        </select>
+                        <small class="text-muted">Select the template style for this section</small>
+                        @error('template')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

@@ -10,7 +10,7 @@ class Section extends Model
     protected $table = 'sections';
 
     protected $fillable = [
-        'section_name', 'status', 'serial', 'page', 'side_note'
+        'section_name', 'template', 'status', 'serial', 'page', 'side_note'
     ];
 
     public function features(){

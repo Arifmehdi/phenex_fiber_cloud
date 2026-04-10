@@ -54,7 +54,7 @@
                                             </td>
                                             <td>{{ $item->section->section_name ?? '-' }}</td>
                                             <td>{{ $item->feature }}</td>
-                                            <td>{{ $item->side_note }}</td>
+                                            <td>{{ strip_tags($item->side_note) }}</td>
                                         </tr>
                                     @empty
                                         <tr>

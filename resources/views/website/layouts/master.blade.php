@@ -88,6 +88,17 @@
     </div>
     @include('website.layouts.header')
     @yield('content')
+    
+    <!-- Global CTA Section - Only show on about page -->
+    @php
+        $routeName = Route::currentRouteName();
+        $slug = request()->segment(2) ?? '';
+        $showGlobalCta = in_array($routeName, ['page', 'page_content']) && in_array($slug, ['about', 'about-us']);
+    @endphp
+    @if($showGlobalCta)
+        @include('frontend.components.cta-global')
+    @endif
+    
     @include('website.layouts.footer')
     <a href="#" class="back-to-top">
         <i class="fa fa-angle-up"></i>
