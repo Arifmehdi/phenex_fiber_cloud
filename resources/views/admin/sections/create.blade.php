@@ -39,6 +39,10 @@
                             <option value="card" {{ old('template') == 'card' ? 'selected' : '' }}>Card Component</option>
                             <option value="vps_pricing" {{ old('template') == 'vps_pricing' ? 'selected' : '' }}>VPS Pricing Cards</option>
                             <option value="cta_button" {{ old('template') == 'cta_button' ? 'selected' : '' }}>CTA Button Center</option>
+                            <option value="call_center" {{ old('template') == 'call_center' ? 'selected' : '' }}>Call Center & Cloud PBX</option>
+                            <option value="internet_packages" {{ old('template') == 'internet_packages' ? 'selected' : '' }}>Internet Packages</option>
+                            <option value="business_internet" {{ old('template') == 'business_internet' ? 'selected' : '' }}>Business Internet</option>
+                            <option value="internet_hero" {{ old('template') == 'internet_hero' ? 'selected' : '' }}>Internet Packages Hero</option>
                             <option value="default" {{ old('template') == 'default' ? 'selected' : '' }}>Default / Generic</option>
                         </select>
                         <small class="text-muted">Select the template style for this section</small>

@@ -50,6 +50,10 @@ class SectionController extends Controller
         return redirect()->route('sections.index')->with('success', 'Section updated successfully.');
     }
 
+    public function show($id){
+        return redirect()->route('sections.destroy', $id);
+    }
+
     public function destroy($id){
         Section::destroy($id);
         return back()->with('success', 'Section deleted successfully.');

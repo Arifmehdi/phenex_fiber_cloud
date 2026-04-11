@@ -74,6 +74,18 @@
                             @case('cta_button')
                                 @include('frontend.components.templates.cta_button')
                                 @break
+                            @case('call_center')
+                                @include('frontend.components.templates.call_center')
+                                @break
+                            @case('internet_packages')
+                                @include('frontend.components.templates.internet_packages')
+                                @break
+                            @case('business_internet')
+                                @include('frontend.components.templates.business_internet')
+                                @break
+                            @case('internet_hero')
+                                @include('frontend.components.templates.internet_hero')
+                                @break
                             @default
                                 @include('frontend.components.templates.default')
                         @endswitch
