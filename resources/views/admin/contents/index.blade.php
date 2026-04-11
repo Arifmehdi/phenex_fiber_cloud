@@ -31,6 +31,7 @@
                                     <tr>
                                         <th width="30">SL</th>
                                         <th width="120">Action</th>
+                                        <th>Name</th>
                                         <th>Content</th>
                                         <th>Side Note</th>
                                     </tr>
@@ -51,12 +52,13 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td>{{ $item->name ?? '-' }}</td>
                                             <td>{{ Str::limit(strip_tags($item->content), 100) }}</td>
                                             <td>{{ strip_tags($item->side_note) }}</td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="text-center">No contents found</td>
+                                            <td colspan="5" class="text-center">No contents found</td>
                                         </tr>
                                     @endforelse
                                     </tbody>

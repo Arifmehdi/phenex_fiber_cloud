@@ -83,7 +83,7 @@
                                 <select name="content_id" id="content_id" class="form-control select2bs4 @error('content_id') is-invalid @enderror">
                                     <option value="">Select Content</option>
                                     @foreach($contents as $content)
-                                        <option value="{{$content->id}}" {{ old('content_id', $data->content_id) == $content->id ? 'selected' : '' }}>{{ Str::limit($content->content, 50) }}</option>
+                                        <option value="{{$content->id}}" {{ old('content_id', $data->content_id) == $content->id ? 'selected' : '' }}>{{ $content->name ? $content->name . ' - ' . Str::limit($content->content, 30) : Str::limit($content->content, 50) }}</option>
                                     @endforeach
                                 </select>
                                 @error('content_id')

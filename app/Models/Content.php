@@ -9,7 +9,7 @@ class Content extends Model
 {
     protected $table = 'contents';
 
-    protected $fillable = ['content', 'side_note'];
+    protected $fillable = ['name', 'content', 'side_note'];
 
     public function setups(){
         return $this->hasMany(SectionSetup::class);
