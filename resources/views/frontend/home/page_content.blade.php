@@ -65,6 +65,15 @@
                             @case('gallery')
                                 @include('frontend.components.templates.gallery')
                                 @break
+                            @case('card')
+                                @include('frontend.components.templates.card')
+                                @break
+                            @case('vps_pricing')
+                                @include('frontend.components.templates.vps_pricing')
+                                @break
+                            @case('cta_button')
+                                @include('frontend.components.templates.cta_button')
+                                @break
                             @default
                                 @include('frontend.components.templates.default')
                         @endswitch

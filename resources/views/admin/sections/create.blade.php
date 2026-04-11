@@ -36,6 +36,9 @@
                             <option value="faq" {{ old('template') == 'faq' ? 'selected' : '' }}>FAQ</option>
                             <option value="blog" {{ old('template') == 'blog' ? 'selected' : '' }}>Blog Posts</option>
                             <option value="gallery" {{ old('template') == 'gallery' ? 'selected' : '' }}>Gallery</option>
+                            <option value="card" {{ old('template') == 'card' ? 'selected' : '' }}>Card Component</option>
+                            <option value="vps_pricing" {{ old('template') == 'vps_pricing' ? 'selected' : '' }}>VPS Pricing Cards</option>
+                            <option value="cta_button" {{ old('template') == 'cta_button' ? 'selected' : '' }}>CTA Button Center</option>
                             <option value="default" {{ old('template') == 'default' ? 'selected' : '' }}>Default / Generic</option>
                         </select>
                         <small class="text-muted">Select the template style for this section</small>

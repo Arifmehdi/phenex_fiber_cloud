@@ -34,6 +34,38 @@
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="accent_color">Accent Color</label>
+                        <input type="text" name="accent_color" id="accent_color" class="form-control @error('accent_color') is-invalid @enderror" placeholder="Enter accent color (e.g., #FF5733)" value="{{old('accent_color', $data->accent_color)}}">
+                        @error('accent_color')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="icon">Icon</label>
+                        <input type="text" name="icon" id="icon" class="form-control @error('icon') is-invalid @enderror" placeholder="Enter icon class (e.g., fa-star)" value="{{old('icon', $data->icon)}}">
+                        @error('icon')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="button_text">Button Text</label>
+                        <input type="text" name="button_text" id="button_text" class="form-control @error('button_text') is-invalid @enderror" placeholder="Enter button text" value="{{old('button_text', $data->button_text)}}">
+                        @error('button_text')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="button_link">Button Link</label>
+                        <input type="text" name="button_link" id="button_link" class="form-control @error('button_link') is-invalid @enderror" placeholder="Enter button link URL" value="{{old('button_link', $data->button_link)}}">
+                        @error('button_link')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="card-footer">
