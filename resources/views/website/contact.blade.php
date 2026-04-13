@@ -28,10 +28,24 @@
                             @csrf
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" name="name" class="form-control" placeholder="First Name"> 
-                                    <input type="email" name="email" class="form-control" placeholder="Email Address"> 
-                                    <textarea class="form-control" name="message"  placeholder="Messages"> </textarea> 
-                                    <button type="submit" class="btn">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{ old('name') }}"> 
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" value="{{ old('email') }}"> 
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject" value="{{ old('subject') }}"> 
+                                    
+                                    <textarea class="form-control" name="message" placeholder="Your Message">{{ old('message') }}</textarea> 
+                                    @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    
+                                    <button type="submit" class="btn" id="contact-submit-btn">
                                         <img src="assets/img/icons/btn-svg.svg" alt="" class="svg"> Submit Now
                                     </button>
                                 </div>

@@ -8,8 +8,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">All Pricings</h3>
-                            <div class="card-tools">
-                                <a href="{{route('pricings.create')}}" class="btn btn-sm btn-primary">
+                            <div class="card-tools d-flex align-items-center">
+                                <div class="input-group input-group-sm">
+                                <input type="text" name="q" id="pricingSearch" class="global-search form-control" data-url="{{ route('admin.global-search-ajax',['type'=>'pricing']) }}" placeholder="Search price, currency, id...">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <a href="{{route('pricings.create')}}" class="btn btn-sm btn-primary ml-2" style="white-space: nowrap;">
                                     <i class="fas fa-plus"></i> Add New Pricing
                                 </a>
                             </div>
@@ -24,52 +32,9 @@
                         </div>
                         @endif
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th width="30">SL</th>
-                                        <th width="120">Action</th>
-                                        <th>Section</th>
-                                        <th>Price</th>
-                                        <th>Currency</th>
-                                        <th>Side Note</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @forelse($data as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
-                                                        Action
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="{{route('pricings.edit',$item->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                                                        <form action="{{route('pricings.destroy',$item->id)}}" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>{{ $item->section->section_name ?? '-' }}</td>
-                                            <td>{{ $item->price }}</td>
-                                            <td>{{ $item->currency }}</td>
-                                            <td>{{ $item->side_note }}</td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="6" class="text-center">No pricings found</td>
-                                        </tr>
-                                    @endforelse
-                                    </tbody>
-                                </table>
-                                {{ $data->render() }}
+                        <div class="card-body p-0 mb-0">
+                            <div class="table-responsive data-container">
+                                @include('admin.pricings.search_data')
                             </div>
                         </div>
                     </div>
@@ -77,4 +42,27 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script>
+        $(document).on('keyup', "#pricingSearch", function(e){
+            e.preventDefault();
+            var url = $(this).attr('data-url');
+            var q = $(this).val();
+            
+            $.ajax({
+                 url: url,
+                 data : {q:q},
+                 method: "get",
+                 success: function(res)
+                 {
+                    if(res.success)
+                    {
+                        $(".data-container").empty().append(res.html);
+                    }
+                 }
+            });
+        });
+    </script>
 @endsection

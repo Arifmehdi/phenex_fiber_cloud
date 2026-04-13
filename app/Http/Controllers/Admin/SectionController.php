@@ -51,7 +51,8 @@ class SectionController extends Controller
     }
 
     public function show($id){
-        return redirect()->route('sections.destroy', $id);
+        $data = Section::findOrFail($id);
+        return view('admin.sections.show', compact('data'));
     }
 
     public function destroy($id){

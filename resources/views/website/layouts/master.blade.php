@@ -113,5 +113,43 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
     <script src="{{ asset('frontend')}}/assets/js/main.js"></script>
     <script src="{{ asset('frontend')}}/assets/js/custom.js"></script>
+    <style>
+    .custom-toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        min-width: 300px;
+        padding: 20px 25px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 16px;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(400px);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .custom-toast.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .custom-toast.toast-success {
+        background: linear-gradient(135deg, #28a745, #20c997);
+    }
+    .custom-toast.toast-error {
+        background: linear-gradient(135deg, #dc3545, #e74c3c);
+    }
+    .custom-toast .toast-content {
+        display: flex;
+        align-items: center;
+    }
+    .custom-toast .toast-icon {
+        font-size: 24px;
+        margin-right: 15px;
+    }
+    .custom-toast .toast-message {
+        font-weight: 500;
+    }
+    </style>
 </body>
 </html>

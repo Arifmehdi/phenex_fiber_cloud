@@ -122,156 +122,79 @@
     </section>
     @endif
 
+
     @if($ws->why_cloud_is_active == 1)
-    <section class="use-govpn pt-120 pb-120" data-bg-img="{{ asset('frontend')}}/assets/img/media/use-govpn-bg.png">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title text-center">
-                        <h2>{{ $ws->why_fb_cloud_title }}</h2>
-                        <p>{!! $ws->why_fb_cloud_subtitle !!}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="tab-wrap">
-                        <ul class="nav" role="tablist">
-                            @forelse($companies as $company)          
-                            <li class="nav-item"><a class="active" data-toggle="tab" href="#basic-protection"
-                                    role="tab">
-                                    <div class="img"><img src="{{ asset('storage/' . $company->img) }}" alt=""></div>
-                                    <h5>{{ $company->name }}</h5>
-                                </a>
-                            </li>
-                            @empty
-                            <p>There have no company</p>
-                            @endforelse
-                            <!-- <li class="nav-item"><a data-toggle="tab" href="#browsing-history" role="tab">
-                                    <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use2.png" alt=""></div>
-                                    <h5>Browsing History</h5>
-                                </a></li>
-                            <li class="nav-item"><a data-toggle="tab" href="#restricted-content" role="tab">
-                                    <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use3.png" alt=""></div>
-                                    <h5>Restricted Content</h5>
-                                </a></li>
-                            <li class="nav-item"><a data-toggle="tab" href="#browse-privately" role="tab">
-                                    <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use4.png" alt=""></div>
-                                    <h5>Browse Privately</h5>
-                                </a>
-                            </li> -->
-                        
-                            </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="basic-protection" role="tabpanel">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <div class="tab-img"><img src="{{ asset('frontend')}}/assets/img/media/tab1.png" data-rjs="2" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="section-title style--two">
-                                            <h2>{{ $ws->about_title}}</h2>
-                                            <p>{!! $ws->about_subtitle !!}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="browsing-history" role="tabpanel">
-                                <div class="row align-items-center">
-                                    @php
-                                        $imagePath = $ws->about_img
-                                            ? asset('storage/s/' . $ws->about_img)
-                                            : asset('frontend/assets/img/media/tab2.png');
-                                    @endphp
-                                    <div class="col-lg-6">
-                                        <div class="tab-img"><img src="{{ $imagePath }}" data-rjs="2" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="section-title style--two">
-                                            <h2>Take Your Browsing To History your grave</h2>
-                                            <p>Data thieves look for unprotected devices & those that do not use to this
-                                                encryption are easy targets. These types of attacks are common, and it’s
-                                                difficult to avoid them without protection.</p>
-                                        </div>
-                                        <ul class="list-dot list-unstyled">
-                                            <li>
-                                                <h5>Safe Browsing</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                            <li>
-                                                <h5>Hide History</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="restricted-content" role="tabpanel">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <div class="tab-img"><img src="{{ asset('frontend')}}/assets/img/media/tab1.png" data-rjs="2" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="section-title style--two">
-                                            <h2>Unblock geo restricted content</h2>
-                                            <p>Data thieves look for unprotected devices & those that do not use to this
-                                                encryption are easy targets. These types of attacks are common, and it’s
-                                                difficult to avoid them without protection.</p>
-                                        </div>
-                                        <ul class="list-dot list-unstyled">
-                                            <li>
-                                                <h5>Safe Content</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                            <li>
-                                                <h5>Secure access</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="browse-privately" role="tabpanel">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <div class="tab-img"><img src="{{ asset('frontend')}}/assets/img/media/tab2.png" alt=""></div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="section-title style--two">
-                                            <h2>Stop tracking & browse privately</h2>
-                                            <p>Data thieves look for unprotected devices & those that do not use to this
-                                                encryption are easy targets. These types of attacks are common, and it’s
-                                                difficult to avoid them without protection.</p>
-                                        </div>
-                                        <ul class="list-dot list-unstyled">
-                                            <li>
-                                                <h5>Stop Tracking</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                            <li>
-                                                <h5>Safe Browsing</h5>
-                                                <p>It is easy for advertisers to influence your behavior you expose all
-                                                    browsing habits. show you higher more affluent city.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section class="use-govpn pt-120 pb-60" data-bg-img="{{ asset('frontend')}}/assets/img/media/use-govpn-bg.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h2>{{ $ws->why_fb_cloud_title }}</h2>
+                    <p>{!! $ws->why_fb_cloud_subtitle !!}</p>
                 </div>
             </div>
         </div>
-    </section>
-    @endif
+
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-wrap">
+                    <ul class="nav" role="tablist">
+                        @forelse($companies as $key => $company)
+                        <li class="nav-item">
+                            <a class="{{ $key == 0 ? 'active' : '' }}" 
+                               data-toggle="tab" 
+                               href="#tab{{ $company->id }}" 
+                               role="tab">
+
+                                <div class="img">
+                                    <img src="{{ asset('storage/' . $company->img) }}" alt="">
+                                </div>
+                                <h5>{{ $company->name }}</h5>
+                            </a>
+                        </li>
+                        @empty
+                        <p>There have no company</p>
+                        @endforelse
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+@if($ws->about_us_active == 1)
+<section class="use-govpn pb-120">
+    <div class="container">
+        <div class="tab-content">
+
+            @foreach($companies as $key => $company)
+            <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" 
+                 id="tab{{ $company->id }}" 
+                 role="tabpanel">
+
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="tab-img">
+                            <img src="{{ asset('frontend')}}/assets/img/media/tab1.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="section-title style--two">
+                            <h2>{{ $ws->about_title }}</h2>
+                            <p>{!! $ws->about_subtitle !!}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+@endif
 
 
     <section class="cta" data-bg-img="{{ asset('frontend')}}/assets/img/media/cta-bg.png">
@@ -286,7 +209,6 @@
             </div>
         </div>
     </section>
-
 
     @if($ws->price_plan_is_active == 1)
     <section class="pt-120 pb-120" data-bg-img="{{ asset('frontend')}}/assets/img/media/price-bg.png">

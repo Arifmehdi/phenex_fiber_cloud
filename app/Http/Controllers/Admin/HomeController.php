@@ -7,34 +7,84 @@ use App\Models\Author;
 use App\Models\BisesoggoCategory;
 use App\Models\BlogPost;
 use App\Models\BookAppointment;
+use App\Models\BlogCategory;
+use App\Models\Cause;
+use App\Models\Company;
+use App\Models\Contact;
 use App\Models\ContactUs;
 use App\Models\Doctor;
-use App\Models\Hospital;
+use App\Models\Feature;
 use App\Models\Member;
 use App\Models\Order;
 use App\Models\Page;
+use App\Models\Pricing;
 use App\Models\Product;
-use App\Models\Cause;
+use App\Models\ProductCategory;
+use App\Models\Section;
+use App\Models\SectionSetup;
 use App\Models\Tag;
 use App\Models\User;
-use App\Models\ProductCategory;
 use App\Models\Department;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
         menuSubmenu('dashboardM','dashboardSM');
-        $membership = User::where('membership_type',1)->get()->count();
-        $volunteer = User::where('membership_type',2)->get()->count();
-        $cat = ProductCategory::where('parent_id', null)->get()->count();
-        $department = Department::get()->count();
-        $news = BlogPost::get()->count();
-        $causes = Cause::get()->count();
-        // $orders = Order::get()->count();
-        // $products = Product::latest()->take(10)->get();
-        // return view('admin.index',compact('cat','products', 'orders', 'causes', 'volunteer', 'membership','news'));
-        return view('admin.index',compact('cat', 'causes', 'volunteer', 'membership','news', 'department'));
+        
+        // User stats
+        $totalUsers = User::count();
+        $activeUsers = User::where('is_approve', 1)->count();
+        
+        // Membership stats
+        $membership = User::where('membership_type',1)->count();
+        $volunteer = User::where('membership_type',2)->count();
+        
+        // Content stats
+        $news = BlogPost::count();
+        $activeNews = BlogPost::where('active', true)->count();
+        $newsCategories = BlogCategory::count();
+        
+        // Content Management
+        $sections = Section::count();
+        $activeSections = Section::where('status', 'active')->count();
+        $sectionSetups = SectionSetup::count();
+        
+        // Features & Pricing
+        $features = Feature::count();
+        $pricings = Pricing::count();
+        // $activePricings - Pricing table has no active column
+        
+        // Causes/Donations
+        $causes = Cause::count();
+        $activeCauses = Cause::where('active', true)->count();
+        
+        // Departments & Services
+        $department = Department::count();
+        // $activeDepartments - need to check if active column exists
+        
+        // Companies
+        $companies = Company::count();
+        $activeCompanies = Company::where('active', true)->count();
+        
+        // Contacts
+        $totalContacts = Contact::count();
+        
+        // Pages
+        $totalPages = Page::count();
+        
+        // Recent data for tables
+        $recentNews = BlogPost::latest()->take(5)->get();
+        $recentContacts = Contact::latest()->take(5)->get();
+        
+        return view('admin.index',compact(
+            'causes', 'volunteer', 'membership', 'news', 'department',
+            'totalUsers', 'activeUsers', 'newsCategories', 'sections', 'activeSections',
+            'sectionSetups', 'features', 'pricings', 'activeNews',
+            'companies', 'activeCompanies', 'totalContacts', 'totalPages',
+            'recentNews', 'recentContacts', 'activeCauses'
+        ));
     }
 
 

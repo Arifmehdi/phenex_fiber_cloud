@@ -146,7 +146,7 @@
                                             </div>
 
                                         <div class="form-group">
-                                            <label for="featured_image">Featured Iamge</label><br>
+                                            <label for="featured_image">Featured Iamge (170 X 250)</label><br>
                                             <input type="file" name="featured_image" id="featured_image">
                                             <img src="{{ route('imagecache', [ 'template'=>'sbixs','filename' => $slider->fi() ]) }}" alt="">
                                             @error('featured_image')

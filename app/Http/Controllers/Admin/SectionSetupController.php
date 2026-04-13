@@ -55,7 +55,8 @@ class SectionSetupController extends Controller
     }
 
     public function show($id){
-        abort(404);
+        $data = SectionSetup::with(['page', 'section', 'title', 'subTitle', 'content', 'pricing', 'features'])->findOrFail($id);
+        return view('admin.setup.show', compact('data'));
     }
 
     public function edit($id){

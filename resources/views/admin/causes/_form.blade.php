@@ -91,7 +91,7 @@
 </div>
     <div class="form-group form-check">
         <input type="hidden" name="active" value="0">
-        <input type="checkbox" name="active" id="active" class="form-check-input" value="1" {{ old('active', isset($cause) && $cause->active ? '1' : '') == '1' ? 'checked' : '' }}>
+        <input type="checkbox" name="active" id="active" class="form-check-input" value="1" {{ old('active', !isset($cause) ? '1' : (isset($cause) && $cause->active ? '1' : '0')) == '1' ? 'checked' : '' }}>
         <label class="form-check-label" for="active">Active</label>
     </div>
 </div>

@@ -17,7 +17,7 @@ class UserController extends Controller
         if($request->id){
            $data['users'] = User::where('id',$request->id)->paginate(10);
         }else{
-            $data['users'] = User::latest()->paginate(50);
+            $data['users'] = User::latest()->paginate(10);
         }
 
         return view('admin.users.index',$data);

@@ -417,34 +417,30 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{route('categories.index')}}" class="nav-link {{ session('lsbsm') == 'allCategories' ? ' active ' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All  Category</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{route('categories.create')}}" class="nav-link {{ session('lsbsm') == 'createCategory' ? ' active ' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Create  Category</p>
-                                </a>
-                            </li>
-
                             <li class="nav-item">
                                 <a href="{{route('news.index')}}" class="nav-link {{ session('lsbsm') == 'allPosts' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Tips Posts</p>
+                                    <p>All News</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('news.create')}}" class="nav-link {{ session('lsbsm') == 'storePost' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Tips Post</p>
+                                    <p>Add New News</p>
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="{{route('categories.index')}}" class="nav-link {{ session('lsbsm') == 'allCategories' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Categories</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('categories.create')}}" class="nav-link {{ session('lsbsm') == 'createCategory' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add Category</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -763,43 +759,25 @@
                             <li class="nav-item">
                                 <a href="{{route('sections.index')}}" class="nav-link {{ session('lsbsm') == 'allSections'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Section Management</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('titles.index')}}" class="nav-link {{ session('lsbsm') == 'allTitles'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Title Management</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('subtitles.index')}}" class="nav-link {{ session('lsbsm') == 'allSubTitles'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Subtitle Management</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('contents.index')}}" class="nav-link {{ session('lsbsm') == 'allContents'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Content Management</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('features.index')}}" class="nav-link {{ session('lsbsm') == 'allFeatures'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Feature Management</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('pricings.index')}}" class="nav-link {{ session('lsbsm') == 'allPricings'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pricing Management</p>
+                                    <p>Sections</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('section-setups.index')}}" class="nav-link {{ session('lsbsm') == 'allSetups'? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Section Setup Management</p>
+                                    <p>Setups</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('features.index')}}" class="nav-link {{ session('lsbsm') == 'allFeatures'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Features</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('pricings.index')}}" class="nav-link {{ session('lsbsm') == 'allPricings'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Pricings</p>
                                 </a>
                             </li>
                         </ul>
@@ -809,7 +787,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'websiteparam'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
-                                 Settings
+                                Settings
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -820,7 +798,6 @@
                                     <p>Website Settings</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
               

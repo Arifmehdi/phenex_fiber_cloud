@@ -8,8 +8,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">All Section Setups</h3>
-                            <div class="card-tools">
-                                <a href="{{route('section-setups.create')}}" class="btn btn-sm btn-primary">
+                            <div class="card-tools d-flex align-items-center">
+                                <div class="input-group input-group-sm">
+                                <input type="text" name="q" id="setupSearch" class="global-search form-control" data-url="{{ route('admin.global-search-ajax',['type'=>'section']) }}" placeholder="Search page, section, title...">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <a href="{{route('section-setups.create')}}" class="btn btn-sm btn-primary ml-2" style="white-space: nowrap;">
                                     <i class="fas fa-plus"></i> Add New Setup
                                 </a>
                             </div>
@@ -24,61 +32,9 @@
                         </div>
                         @endif
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th width="30">SL</th>
-                                        <th width="150">Action</th>
-                                        <th>Status</th>
-                                        <th>Page</th>
-                                        <th>Section</th>
-                                        <th>Title</th>
-                                        <th>SubTitle</th>
-                                        <th>Features</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @forelse($data as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
-                                                        Action
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="{{route('section-setups.edit',$item->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                                                        <a class="dropdown-item" href="{{route('section-setups.toggleActive',$item->id)}}" onclick="return confirm('Toggle status?');" style="cursor:pointer;">
-                                                            <i class="fas fa-{{ $item->active ? 'eye-slash' : 'eye' }}"></i> {{ $item->active ? 'Hide' : 'Show' }}
-                                                        </a>
-                                                        <a class="dropdown-item" href="#" onclick="deleteSetup('{{route('section-setups.destroy',$item->id)}}'); return false;" style="cursor:pointer;"><i class="fas fa-trash"></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                @if($item->active)
-                                                    <span class="badge badge-success">Active</span>
-                                                @else
-                                                    <span class="badge badge-secondary">Hidden</span>
-                                                @endif
-                                            </td>
-                                            <td>{{ $item->page->name_en ?? '-' }}</td>
-                                            <td>{{ $item->section->section_name ?? '-' }}</td>
-                                            <td>{{ $item->title->title ?? '-' }}</td>
-                                            <td>{{ $item->subTitle->title ?? '-' }}</td>
-                                            <td><span class="badge badge-info">{{ $item->features->count() }}</span></td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="8" class="text-center">No setups found</td>
-                                        </tr>
-                                    @endforelse
-                                    </tbody>
-                                </table>
-                                {{ $data->render() }}
+                        <div class="card-body p-0 mb-0">
+                            <div class="table-responsive data-container">
+                                @include('admin.setup.search_data')
                             </div>
                         </div>
                     </div>
@@ -92,7 +48,29 @@
         @method('DELETE')
     </form>
 
+@endsection
+
+@section('script')
     <script>
+        $(document).on('keyup', "#setupSearch", function(e){
+            e.preventDefault();
+            var url = $(this).attr('data-url');
+            var q = $(this).val();
+            
+            $.ajax({
+                 url: url,
+                 data : {q:q},
+                 method: "get",
+                 success: function(res)
+                 {
+                    if(res.success)
+                    {
+                        $(".data-container").empty().append(res.html);
+                    }
+                 }
+            });
+        });
+
         function deleteSetup(url) {
             if(confirm('Are you sure?')) {
                 const form = document.getElementById('deleteForm');

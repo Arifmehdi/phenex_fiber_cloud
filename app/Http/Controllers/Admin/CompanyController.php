@@ -51,6 +51,7 @@ class CompanyController extends Controller
 
         $data = $request->except('img');
         $data['addedby_id'] = Auth::id();
+        $data['active'] = $request->has('active') ? 1 : 0;
 
         if ($request->hasFile('img')) {
             $path = $request->file('img')->store('companies', 'public');
@@ -115,8 +116,7 @@ class CompanyController extends Controller
         }
         
         // Handle checkbox 'active'
-        $data['active'] = $request->has('active');
-
+        $data['active'] = $request->has('active') ? 1 : 0;
 
         $company->update($data);
 

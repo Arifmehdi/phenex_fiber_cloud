@@ -47,6 +47,11 @@ class FeatureController extends Controller
         return redirect()->route('features.index')->with('success', 'Feature updated successfully.');
     }
 
+    public function show($id){
+        $data = Feature::with('section')->findOrFail($id);
+        return view('admin.features.show', compact('data'));
+    }
+
     public function destroy($id){
         Feature::destroy($id);
         return back()->with('success', 'Feature deleted successfully.');

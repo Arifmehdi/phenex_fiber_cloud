@@ -577,7 +577,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
  
     //BlogPost
     Route::resource('news',PostController::class);
-    Route::post('news/active',[PostController::class,'newsActive'])->name('news.active');
+    Route::post('news/active',[PostController::class,'newsActive'])->name('admin.news.active');
     Route::get('medias-ajax',[MediaController::class,'getMediasAjax'])->name('medias.getMediasAjax');
 
     //BisesoggoCategory
@@ -671,6 +671,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
     Route::prefix('admin')->as('admin.')->group(function () {
         // Causes 
         Route::resource('causes', CauseController::class);
+        Route::post('/causes/active', [CauseController::class, 'causeActive'])->name('causes.active');
 
         // Companies 
         Route::resource('companies', CompanyController::class);

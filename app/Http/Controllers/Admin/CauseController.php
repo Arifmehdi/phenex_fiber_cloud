@@ -57,6 +57,7 @@ class CauseController extends Controller
         $data = $request->except('image');
         $data['slug'] = Str::slug($request->title);
         $data['addedby_id'] = Auth::id();
+        $data['active'] = $request->has('active') ? 1 : 0;
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('causes', 'public');
@@ -126,8 +127,7 @@ class CauseController extends Controller
         }
         
         // Handle checkbox 'active'
-        $data['active'] = $request->has('active');
-
+        $data['active'] = $request->has('active') ? 1 : 0;
 
         $cause->update($data);
 
@@ -150,5 +150,15 @@ class CauseController extends Controller
 
         return redirect()->route('admin.causes.index')
                         ->with('success','Prcie deleted successfully');
+    }
+
+    public function causeActive(Request $request){
+        $cause = Cause::find($request->id);
+        if($cause){
+            $cause->active = $request->mode == 'true' ? 1 : 0;
+            $cause->save();
+            return response()->json(['msg'=>'Successfully updated status','status'=>true]);
+        }
+        return response()->json(['msg'=>'Cause not found','status'=>false]);
     }
 }

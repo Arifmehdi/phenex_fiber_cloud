@@ -42,6 +42,11 @@ class TitleController extends Controller
         return redirect()->route('titles.index')->with('success', 'Title updated successfully.');
     }
 
+    public function show($id){
+        $data = Title::findOrFail($id);
+        return view('admin.titles.show', compact('data'));
+    }
+
     public function destroy($id){
         Title::destroy($id);
         return back()->with('success', 'Title deleted successfully.');

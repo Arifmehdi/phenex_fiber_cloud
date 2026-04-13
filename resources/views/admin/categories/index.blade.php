@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">All Categories</h3>
-                            <div class="card-tools">
+                            <div class="card-tools d-flex align-items-center">
                                 <div class="input-group input-group-sm">
                                 <input type="search" name="q"  class="global-search form-control float-right" data-url="{{ route('admin.global-search-ajax',['type'=>'category']) }}"  placeholder="Search name, id...">
                                     <div class="input-group-append">
@@ -18,10 +18,13 @@
                                         </button>
                                     </div>
                                 </div>
+                                <a href="{{route('categories.create')}}" class="btn btn-sm btn-primary ml-2" style="white-space: nowrap;">
+                                    <i class="fas fa-plus"></i> Add New Category
+                                </a>
                             </div>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body p-0 mb-0" style="overflow: visible;">
                             <div class="table-responsive data-container">
                                 @include('admin.categories.search_data')
                             </div>

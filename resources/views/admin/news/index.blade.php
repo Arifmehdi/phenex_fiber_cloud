@@ -5,22 +5,25 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+<div class="card">
                         <div class="card-header">
                             <h3 class="card-title">All News</h3>
-                            <div class="card-tools">
+                            <div class="card-tools d-flex align-items-center">
                                 <div class="input-group input-group-sm">
-                                <input type="search" name="q"  class="global-search form-control float-right" data-url="{{ route('admin.global-search-ajax',['type'=>'post']) }}"  placeholder="Search title, id...">
+                                <input type="text" name="q" id="newsSearch" class="global-search form-control float-right" data-url="{{ route('admin.global-search-ajax',['type'=>'post']) }}" placeholder="Search title, id...">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default">
                                         <i class="fas fa-search"></i>
                                         </button>
                                     </div>
                                 </div>
+                                <a href="{{route('news.create')}}" class="btn btn-sm btn-primary ml-2" style="white-space: nowrap;">
+                                    <i class="fas fa-plus"></i> Add New News
+                                </a>
                             </div>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body p-0 mb-0" style="overflow: visible;">
                             <div class="table-responsive data-container">
                                 @include('admin.news.search_data')
                             </div>
@@ -65,12 +68,11 @@
                 })
             });
 
-            $(document).on('keyup', ".global-search", function(e){
-
+            $(document).on('keyup', "#newsSearch", function(e){
                 e.preventDefault();
-                var that = $( this );
-                var url = that.attr('data-url');
-                var q = that.val();
+                var url = $(this).attr('data-url');
+                var q = $(this).val();
+                
                 $.ajax({
                      url: url,
                      data : {q:q},

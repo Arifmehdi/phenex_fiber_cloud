@@ -215,13 +215,16 @@
 
                 </div>
                 
-                <!-- about section Start -->
+<!-- about section Start -->
 
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card card-widget">
                             <div class="card-header with-border">
                                 <h3 class="card-title">About Us</h3>
+                                <div class="float-right">
+                                    <input type="checkbox" name="about_us_active" id="about_us_active" {{ $websiteParameter->about_us_active == 1 ? 'checked' : '' }} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -249,7 +252,7 @@
                                         </div>
                                     </div>
 
-                                     <!-- Image Preview -->
+                                    <!-- Image Preview -->
                                     <div class="col-sm-4">
                                         <div class="w3-display-container" style="height:110px; width:100%; border:1px solid #ddd; border-radius:5px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
                                             @if($websiteParameter->about_img)
@@ -590,6 +593,7 @@
         $('#why_cloud_is_active').bootstrapToggle();
         $('#price_plan_is_active').bootstrapToggle();
         $('#tips_is_active').bootstrapToggle();
+        $('#about_us_active').bootstrapToggle();
     });
 </script>
 @endpush

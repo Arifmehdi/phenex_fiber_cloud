@@ -42,6 +42,11 @@ class SubTitleController extends Controller
         return redirect()->route('subtitles.index')->with('success', 'SubTitle updated successfully.');
     }
 
+    public function show($id){
+        $data = SubTitle::findOrFail($id);
+        return view('admin.subtitles.show', compact('data'));
+    }
+
     public function destroy($id){
         SubTitle::destroy($id);
         return back()->with('success', 'SubTitle deleted successfully.');

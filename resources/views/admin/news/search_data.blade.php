@@ -1,3 +1,4 @@
+<div class="table-responsive">
 <table id="example1" class="table table-sm table-bordered table-striped">
     <thead>
     <tr>
@@ -35,7 +36,7 @@
                 <img  src="{{ route('imagecache', ['template' => 'ppsm', 'filename' => $news->fi()]) }}" alt="post">
             </td>
             <td>
-                <input type="checkbox" name="toogle" data-url="{{route('news.active')}}" value="{{$news->id}}" data-toggle="toggle" data-size="sm" {{$news->active==1 ? 'checked' : '' }} data-on="On"  data-off="Off" data-onstyle="success" data-offstyle="danger">
+                <input type="checkbox" name="toogle" data-url="{{route('admin.news.active')}}" value="{{$news->id}}" data-toggle="toggle" data-size="sm" {{$news->active==1 ? 'checked' : '' }} data-on="On"  data-off="Off" data-onstyle="success" data-offstyle="danger">
             </td>
             <td>{{$news->status}}</td>
 
@@ -44,6 +45,7 @@
     </tbody>
 </table>
 {{ $newses->render() }}
+</div>
 
 
 

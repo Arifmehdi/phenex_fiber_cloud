@@ -1,3 +1,4 @@
+<div class="table-responsive">
 <table id="example1" class="table table-sm table-bordered table-striped">
     <thead>
     <tr>
@@ -39,3 +40,4 @@
 </table>
 
 {{ $categories->render() }}
+</div>

@@ -49,6 +49,11 @@ class ContentController extends Controller
         return redirect()->route('contents.index')->with('success', 'Content updated successfully.');
     }
 
+    public function show($id){
+        $data = Content::findOrFail($id);
+        return view('admin.contents.show', compact('data'));
+    }
+
     public function destroy($id){
         Content::destroy($id);
         return back()->with('success', 'Content deleted successfully.');

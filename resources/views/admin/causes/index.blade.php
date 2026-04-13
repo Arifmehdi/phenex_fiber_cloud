@@ -1,81 +1,95 @@
 @extends('admin.master')
-
+@section('title',"Admin Dashboard | All Causes")
 @section('body')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Price List</h3>
-                    <a href="{{ route('admin.causes.create') }}" class="btn btn-primary float-right">Add New</a>
-                </div>
-                <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
+<section class="content py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">All Causes</h3>
+                        <div class="card-tools d-flex align-items-center">
+                            <div class="input-group input-group-sm">
+                            <input type="text" name="q" id="causeSearch" class="global-search form-control" data-url="{{ route('admin.global-search-ajax',['type'=>'cause']) }}" placeholder="Search title, id...">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="{{ route('admin.causes.create') }}" class="btn btn-sm btn-primary ml-2" style="white-space: nowrap;">
+                                <i class="fas fa-plus"></i> Add New Cause
+                            </a>
                         </div>
-                    @endif
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Actions</th>
-                                {{--<th>Image</th>--}}
-                                <th>Price Title</th>
-                                <th>Duration</th>
-                                <th>Price</th>
-                                <th>Discount Price</th>
-                                <th>Yearly Price</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($causes as $cause)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    {{--<td>
-                                        @if ($cause->image)
-                                            <img src="{{ asset('storage/' . $cause->image) }}" alt="{{ $cause->title }}" width="50">
-                                        @endif
-                                    </td>--}}
-                                    <td>
-                                        <div class="dropdown show">
-                                            <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
-                                                Action
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="{{ route('admin.causes.edit', $cause->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="{{ route('admin.causes.destroy', $cause->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $cause->title }}</td>
-                                    <td>{{ $cause->duration }}</td>
-                                    <td>{{ $cause->amount }}</td>
-                                    <td>{{ number_format($cause->raised_amount, 2) }}</td>
-                                    <td>{{ number_format($cause->goal_amount, 2) }}</td>
-                                    <td>
-                                        @if ($cause->active)
-                                            <span class="badge badge-success">Active</span>
-                                        @else
-                                            <span class="badge badge-danger">Inactive</span>
-                                        @endif
-                                    </td>
+                    </div>
 
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="card-footer clearfix">
-                    {{ $causes->links() }}
+                @endif
+
+<div class="card-body p-0 mb-0">
+                            <div class="table-responsive data-container">
+                                @include('admin.causes.search_data')
+                            </div>
+                        </div>
+                        <div class="card-footer clearfix">
+                            {{ $causes->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('input[name=toogle]').change(function(){
+            var that = $(this);
+            var url = that.attr('data-url');
+            var mode = that.prop('checked');
+            var id = that.val();
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    _token: '{{csrf_token()}}',
+                    mode: mode,
+                    id: id,
+                },
+                success: function(response) {
+                    if(response.status) {
+                        alert(response.msg);
+                    } else {
+                        alert('please try again');
+                    }
+                }
+            });
+        });
+
+        $(document).on('keyup', "#causeSearch", function(e){
+            e.preventDefault();
+            var url = $(this).attr('data-url');
+            var q = $(this).val();
+            $.ajax({
+                url: url,
+                data: {q:q},
+                method: "get",
+                success: function(res)
+                {
+                    if(res.success)
+                    {
+                        $(".data-container").empty().append(res.html);
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endpush

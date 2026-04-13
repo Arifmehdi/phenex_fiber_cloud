@@ -50,7 +50,8 @@ class PricingController extends Controller
     }
 
     public function show($id){
-        return redirect()->route('pricings.destroy', $id);
+        $data = Pricing::with('section')->findOrFail($id);
+        return view('admin.pricings.show', compact('data'));
     }
 
     public function destroy($id){

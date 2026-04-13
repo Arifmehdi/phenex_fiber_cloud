@@ -62,6 +62,8 @@ class WebsiteParameterController extends Controller
         $wp->tips_subtitle = $request->tips_subtitle;
         $wp->tips_is_active = $request->has('tips_is_active') ? 1 : 0;
 
+        $wp->about_us_active = $request->has('about_us_active') ? 1 : 0;
+
         $wp->editedby_id = Auth::id();
 
 
