@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->string('section_name');
+            $table->string('template')->nullable()->default('default');
             $table->boolean('status')->default(1); // Hide Yes/No
             $table->integer('serial')->nullable();
             $table->string('page')->nullable();

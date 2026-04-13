@@ -286,7 +286,7 @@ class FrontendController extends Controller
         abort_if(!$page, 404);
         
         $sectionSetups = SectionSetup::with([
-            'section', 'title', 'subTitle', 'content', 'pricing', 'features'
+            'section', 'title', 'subTitle', 'content', 'pricing', 'features', 'section.pricings'
         ])
         ->where('page_id', $page->id)
         ->where('active', 1)

@@ -49,7 +49,11 @@
 
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                         <a class="dropdown-item" href="{{route('pricings.edit',$item->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                                                        <a class="dropdown-item" href="{{route('pricings.destroy',$item->id)}}" onclick="return confirm('Are you sure?');" style="cursor:pointer;"><i class="fas fa-trash"></i> Delete</a>
+                                                        <form action="{{route('pricings.destroy',$item->id)}}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </td>

@@ -20,7 +20,11 @@ class ContentController extends Controller
         $r->validate([
             'name' => 'nullable|string|max:255',
             'content' => 'required|string',
-            'side_note' => 'nullable|string'
+            'side_note' => 'nullable|string',
+            'accent_color' => 'nullable|string|max:20',
+            'icon' => 'nullable|string|max:50',
+            'button_text' => 'nullable|string|max:100',
+            'button_link' => 'nullable|string|max:255'
         ]);
         Content::create($r->all());
         return redirect()->route('contents.index')->with('success', 'Content created successfully.');
@@ -35,7 +39,11 @@ class ContentController extends Controller
         $r->validate([
             'name' => 'nullable|string|max:255',
             'content' => 'required|string',
-            'side_note' => 'nullable|string'
+            'side_note' => 'nullable|string',
+            'accent_color' => 'nullable|string|max:20',
+            'icon' => 'nullable|string|max:50',
+            'button_text' => 'nullable|string|max:100',
+            'button_link' => 'nullable|string|max:255'
         ]);
         Content::findOrFail($id)->update($r->all());
         return redirect()->route('contents.index')->with('success', 'Content updated successfully.');

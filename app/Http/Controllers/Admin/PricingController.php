@@ -49,6 +49,10 @@ class PricingController extends Controller
         return redirect()->route('pricings.index')->with('success', 'Pricing updated successfully.');
     }
 
+    public function show($id){
+        return redirect()->route('pricings.destroy', $id);
+    }
+
     public function destroy($id){
         Pricing::destroy($id);
         return back()->with('success', 'Pricing deleted successfully.');

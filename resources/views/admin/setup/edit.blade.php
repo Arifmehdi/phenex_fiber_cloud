@@ -102,11 +102,11 @@
                         </div>
                     </div>
 
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="pricing_id">Pricing <span class="text-danger">*</span></label>
-                                <select name="pricing_id" id="pricing_id" class="form-control @error('pricing_id') is-invalid @enderror" required>
+                                <select name="pricing_id" id="pricing_id" class="form-control @error('pricing_id') is-invalid @enderror" >
                                     <option value="">Select Pricing</option>
                                     @foreach($pricings as $pricing)
                                         <option value="{{$pricing->id}}" {{ old('pricing_id', $data->pricing_id) == $pricing->id ? 'selected' : '' }}>{{ $pricing->price }} {{ $pricing->currency }}</option>
@@ -117,7 +117,7 @@
                                 @enderror
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                         <label for="features">Features</label>

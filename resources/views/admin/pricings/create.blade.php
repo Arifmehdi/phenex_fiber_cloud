@@ -38,8 +38,8 @@
                                 <label for="currency">Currency <span class="text-danger">*</span></label>
                                 <select name="currency" id="currency" class="form-control @error('currency') is-invalid @enderror" required>
                                     <option value="">Select Currency</option>
-                                    <option value="BDT" {{ old('currency') == '৳' ? 'selected' : '' }}>Taka (BDT) - ৳</option>
-                                    <option value="USD" {{ old('currency') == '$' ? 'selected' : '' }}>Dollar (USD) - $</option>
+                                    <option value="৳" {{ old('currency') == '৳' ? 'selected' : '' }}>Taka (BDT) - ৳</option>
+                                    <option value="$" {{ old('currency') == '$' ? 'selected' : '' }}>Dollar (USD) - $</option>
                                 </select>
                                 @error('currency')
                                     <span class="invalid-feedback">{{ $message }}</span>
