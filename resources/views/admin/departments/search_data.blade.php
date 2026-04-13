@@ -5,7 +5,6 @@
             <th>Action</th>
             <th>Title</th>
             <th>Icon</th>
-            <th>Featured</th>
             <th>Active</th>
         </tr>
     </thead>
@@ -35,13 +34,6 @@
                     <img src="{{ route('imagecache', [ 'template'=>'sbixs','filename' => $category->fi() ]) }}" alt="">
                 </td>
                 <td>
-                    @if ($category->featured)
-                    <span class="badge badge-primary">Featured</span>
-                    @endif
-
-                </td>
-
-                <td>
                     <input type="checkbox" name="toogle" data-url="{{route('departments.active')}}" value="{{$category->id}}" data-toggle="toggle" data-size="sm" {{$category->active==1 ? 'checked' : '' }} data-on="On"  data-off="Off" data-onstyle="success" data-offstyle="danger">
                 </td>
 
@@ -49,7 +41,7 @@
 
         @empty
             <tr>
-                <td colspan="6" class="text-danger h5 text-center">No Department Found</td>
+                <td colspan="5" class="text-danger h5 text-center">No Department Found</td>
             </tr>
         @endforelse
     </tbody>

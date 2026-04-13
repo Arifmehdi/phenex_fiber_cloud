@@ -140,4 +140,14 @@ class CompanyController extends Controller
         return redirect()->route('admin.companies.index')
                         ->with('success','Company deleted successfully');
     }
+
+    public function companyActive(Request $request){
+        $company = Company::find($request->id);
+        if($company){
+            $company->active = $request->mode == 'true' ? 1 : 0;
+            $company->save();
+            return response()->json(['msg'=>'Successfully updated status','status'=>true]);
+        }
+        return response()->json(['msg'=>'Company not found','status'=>false]);
+    }
 }

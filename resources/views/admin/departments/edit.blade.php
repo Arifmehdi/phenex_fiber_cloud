@@ -33,11 +33,6 @@
                             </div>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="featured" name="featured" {{ $department->featured ? "checked" : "" }}>
-                                <label class="form-check-label" for="exampleCheck1">Featured</label>
-                            </div>
-
-                            <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="featured" name="active" {{ $department->active ? "checked" : "" }}>
                                 <label class="form-check-label" for="exampleCheck1">Active</label>
                             </div>

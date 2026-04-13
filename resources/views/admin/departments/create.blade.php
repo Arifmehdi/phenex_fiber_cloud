@@ -34,8 +34,8 @@
                             </div>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="featured" name="featured" {{ old('featured') ? "checked" : "" }}>
-                                <label class="form-check-label" for="exampleCheck1">Featured</label>
+                                <input type="checkbox" class="form-check-input" id="active" name="active" checked>
+                                <label class="form-check-label" for="active">Active</label>
                             </div>
 
                             <input type="submit" class="btn btn-success mt-2">

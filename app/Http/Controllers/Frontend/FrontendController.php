@@ -71,6 +71,9 @@ class FrontendController extends Controller
         $data['departments'] = Department::whereActive(true)
             ->select('image','name_en','name_bn','excerpt_en')
             ->get();
+        $data['companies'] = Company::whereActive(true)
+            ->select('img','name')
+            ->get();
         
         $data['testimonials'] = Testimonial::whereActive(true)
             ->latest()

@@ -137,12 +137,17 @@
                 <div class="col-12">
                     <div class="tab-wrap">
                         <ul class="nav" role="tablist">
+                            @forelse($companies as $company)          
                             <li class="nav-item"><a class="active" data-toggle="tab" href="#basic-protection"
                                     role="tab">
-                                    <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use1.png" alt=""></div>
-                                    <h5>Basic Protection</h5>
-                                </a></li>
-                            <li class="nav-item"><a data-toggle="tab" href="#browsing-history" role="tab">
+                                    <div class="img"><img src="{{ asset('storage/' . $company->img) }}" alt=""></div>
+                                    <h5>{{ $company->name }}</h5>
+                                </a>
+                            </li>
+                            @empty
+                            <p>There have no company</p>
+                            @endforelse
+                            <!-- <li class="nav-item"><a data-toggle="tab" href="#browsing-history" role="tab">
                                     <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use2.png" alt=""></div>
                                     <h5>Browsing History</h5>
                                 </a></li>
@@ -153,8 +158,10 @@
                             <li class="nav-item"><a data-toggle="tab" href="#browse-privately" role="tab">
                                     <div class="img"><img src="{{ asset('frontend')}}/assets/img/icons/use4.png" alt=""></div>
                                     <h5>Browse Privately</h5>
-                                </a></li>
-                        </ul>
+                                </a>
+                            </li> -->
+                        
+                            </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="basic-protection" role="tabpanel">
                                 <div class="row align-items-center">

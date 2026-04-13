@@ -56,11 +56,7 @@
                                     {{--<td>{{ $company->phone }}</td>
                                     <td>{{ $company->address }}</td>--}}
                                     <td>
-                                        @if ($company->active)
-                                            <span class="badge badge-success">Active</span>
-                                        @else
-                                            <span class="badge badge-danger">Inactive</span>
-                                        @endif
+                                        <input type="checkbox" name="toogle" data-url="{{route('admin.companies.active')}}" value="{{$company->id}}" data-toggle="toggle" data-size="sm" {{$company->active==1 ? 'checked' : '' }} data-on="On"  data-off="Off" data-onstyle="success" data-offstyle="danger">
                                     </td>
 
                                 </tr>
@@ -76,3 +72,32 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('input[name=toogle]').change(function(){
+            var that = $(this);
+            var url = that.attr('data-url');
+            var mode = that.prop('checked');
+            var id = that.val();
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    _token: '{{csrf_token()}}',
+                    mode: mode,
+                    id: id,
+                },
+                success: function(response) {
+                    if(response.status) {
+                        alert(response.msg);
+                    } else {
+                        alert('please try again');
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endpush

@@ -151,12 +151,12 @@ class DepartmentController extends Controller
 
 
     public function departmentActive(Request $request){
-        if($request->mode=='true'){
-            DB::table('bisesoggo_categories')->where('id',$request->id)->update(['active'=>1]);
+        $department = Department::find($request->id);
+        if($department){
+            $department->active = $request->mode == 'true' ? 1 : 0;
+            $department->save();
+            return response()->json(['msg'=>'Successfully updated status','status'=>true]);
         }
-        else{
-            DB::table('bisesoggo_categories')->where('id',$request->id)->update(['active'=>0]);
-        }
-        return response()->json(['msg'=>'Successfully updated status','status'=>true]);
+        return response()->json(['msg'=>'Department not found','status'=>false]);
     }
 }

@@ -674,6 +674,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
 
         // Companies 
         Route::resource('companies', CompanyController::class);
+        Route::post('/companies/active', [CompanyController::class, 'companyActive'])->name('companies.active');
 
         // Mosque Routes
         Route::resource('mosques', AdminMosqueController::class);
