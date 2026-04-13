@@ -295,7 +295,12 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="service_subtitle" class="control-label">Service Sub-Title</label>
-                                            <input type="text" name="service_subtitle" class="form-control"  id="service_subtitle" placeholder="Service Sub-Title" value="{{ old('service_subtitle') ?: $websiteParameter->service_subtitle ?? '' }}">
+                                            <div class="input-group">
+                                                <input type="text" name="service_subtitle" class="form-control"  id="service_subtitle" placeholder="Service Sub-Title" value="{{ old('service_subtitle') ?: $websiteParameter->service_subtitle ?? '' }}">
+                                                <span class="input-group-addon" style="padding: 0 10px;">
+                                                    <input type="checkbox" name="service_is_active" id="service_is_active" {{ $websiteParameter->service_is_active == 1 ? 'checked' : '' }} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -311,7 +316,12 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="why_fb_cloud_subtitle" class="control-label">Why Fiber Cloud Sub-Title</label>
-                                            <input type="text" name="why_fb_cloud_subtitle" class="form-control"  id="why_fb_cloud_subtitle" placeholder="Why Fiber Cloud Sub-Title" value="{{ old('why_fb_cloud_subtitle') ?: $websiteParameter->why_fb_cloud_subtitle ?? '' }}">
+                                            <div class="input-group">
+                                                <input type="text" name="why_fb_cloud_subtitle" class="form-control"  id="why_fb_cloud_subtitle" placeholder="Why Fiber Cloud Sub-Title" value="{{ old('why_fb_cloud_subtitle') ?: $websiteParameter->why_fb_cloud_subtitle ?? '' }}">
+                                                <span class="input-group-addon" style="padding: 0 10px;">
+                                                    <input type="checkbox" name="why_cloud_is_active" id="why_cloud_is_active" {{ $websiteParameter->why_cloud_is_active == 1 ? 'checked' : '' }} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -51,12 +51,16 @@ class WebsiteParameterController extends Controller
         
         $wp->service_title  = $request->service_title;
         $wp->service_subtitle = $request->service_subtitle;
+        $wp->service_is_active = $request->service_is_active ? 1 : 0;
         $wp->why_fb_cloud_title  = $request->why_fb_cloud_title;
         $wp->why_fb_cloud_subtitle = $request->why_fb_cloud_subtitle;
+        $wp->why_cloud_is_active = $request->why_cloud_is_active ? 1 : 0;
         $wp->price_title  = $request->price_title;
         $wp->price_subtitle = $request->price_subtitle;
+        $wp->price_plan_is_active = $request->price_plan_is_active ? 1 : 0;
         $wp->tips_title  = $request->tips_title;
         $wp->tips_subtitle = $request->tips_subtitle;
+        $wp->tips_is_active = $request->tips_is_active ? 1 : 0;
 
         $wp->editedby_id = Auth::id();
 
