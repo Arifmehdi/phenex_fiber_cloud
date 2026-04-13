@@ -15,15 +15,20 @@
             <tr>
                 <td>{{ $i++ }}</td>
 
-                <td class="d-flex">
-                <a href="{{route('departments.edit',$category)}}" class="text-success mr-2"><i class="fas fa-edit"></i></a>
-
-                    <form action="{{route('departments.destroy', $category) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button href="{{route('departments.destroy', $category)}}" class="text-danger" onclick="return confirm('Are you sure? you want to delete this gallery Item?')" style="all:unset; cursor: pointer;"><i class="fas fa-trash"></i></button>
-                    </form>
-
+                <td>
+                <div class="dropdown show">
+                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{route('departments.edit',$category)}}"><i class="fas fa-edit"></i> Edit</a>
+                        <form action="{{route('departments.destroy', $category) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button href="{{route('departments.destroy', $category)}}" class="dropdown-item text-danger" onclick="return confirm('Are you sure? you want to delete this gallery Item?')"><i class="fas fa-trash"></i> Delete</button>
+                        </form>
+                    </div>
+                </div>
                 </td>
                 <td>{{ $category->name_en }}</td>
                 <td>

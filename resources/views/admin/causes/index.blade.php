@@ -19,6 +19,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Actions</th>
                                 {{--<th>Image</th>--}}
                                 <th>Price Title</th>
                                 <th>Duration</th>
@@ -26,7 +27,6 @@
                                 <th>Discount Price</th>
                                 <th>Yearly Price</th>
                                 <th>Status</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +38,21 @@
                                             <img src="{{ asset('storage/' . $cause->image) }}" alt="{{ $cause->title }}" width="50">
                                         @endif
                                     </td>--}}
+                                    <td>
+                                        <div class="dropdown show">
+                                            <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+                                                Action
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="{{ route('admin.causes.edit', $cause->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                                <form action="{{ route('admin.causes.destroy', $cause->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ $cause->title }}</td>
                                     <td>{{ $cause->duration }}</td>
                                     <td>{{ $cause->amount }}</td>
@@ -50,15 +65,7 @@
                                             <span class="badge badge-danger">Inactive</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <a href="{{ route('admin.causes.show', $cause->id) }}" class="btn btn-sm btn-primary">View</a>
-                                        <a href="{{ route('admin.causes.edit', $cause->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                        <form action="{{ route('admin.causes.destroy', $cause->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
-                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

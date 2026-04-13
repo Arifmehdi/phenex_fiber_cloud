@@ -61,6 +61,7 @@
             </div>
         </div>
     </div>
+    @if($ws->service_is_active == 1)
     <section class="online-thread pt-120 pb-90">
         <div class="container">
             <div class="row">
@@ -119,6 +120,9 @@
             </div>
         </div>
     </section>
+    @endif
+
+    @if($ws->why_cloud_is_active == 1)
     <section class="use-govpn pt-120 pb-120" data-bg-img="{{ asset('frontend')}}/assets/img/media/use-govpn-bg.png">
         <div class="container">
             <div class="row">
@@ -260,6 +264,9 @@
             </div>
         </div>
     </section>
+    @endif
+
+
     <section class="cta" data-bg-img="{{ asset('frontend')}}/assets/img/media/cta-bg.png">
         <div class="container">
             <div class="row justify-content-center">
@@ -272,6 +279,9 @@
             </div>
         </div>
     </section>
+
+
+    @if($ws->price_plan_is_active == 1)
     <section class="pt-120 pb-120" data-bg-img="{{ asset('frontend')}}/assets/img/media/price-bg.png">
         <div class="container">
             <div class="row">
@@ -400,6 +410,8 @@
             </div>
         </div>
     </section>
+    @endif 
+
     <section class="newsletter" data-bg-img="{{ asset('frontend')}}/assets/img/media/subscribe-bg.png">
         <div class="container">
             <div class="row justify-content-center">
@@ -447,6 +459,8 @@
             </div>
         </div>
     </section> -->
+
+    @if($ws->price_plan_is_active == 1)
     <section class="blog pt-120 pb-70" data-bg-img="{{ asset('frontend')}}/assets/img/media/blog-bg.png">
         <div class="container">
             <div class="row">
@@ -537,6 +551,8 @@
             </div>
         </div>
     </section>
+    @endif 
+
     <div>
         <div class="container">
             <div class="row">

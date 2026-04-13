@@ -194,28 +194,6 @@
                         </ul>
                     </li>--}}
 
-
-                    <li class="nav-item {{ session('lsbm') == 'slider'? ' menu-open ' : ''}}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'slider'? ' active ' : ''}}">
-                            <i class="nav-icon fas fa-search-location"></i>
-                            <p>
-                                Sliders
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('sliders.index') }}" class="nav-link {{ session('lsbsm') == 'allFrontSlider' ? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Main Slider</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                   
-
                     <li class="nav-item {{ session('lsbm') == 'menupage' ? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'menupage' ? ' active ' : ''}}">
                             <i class="nav-icon fas fa-bezier-curve"></i>
@@ -243,6 +221,44 @@
 
                         </ul>
                     </li>
+                    <li class="nav-item {{ session('lsbm') == 'mediaM'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'mediaM'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-pager"></i>
+                            <p>
+                                Media
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('medias.index') }}" class="nav-link {{ session('lsbsm') == 'mediaSM'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Media</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item {{ session('lsbm') == 'slider'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'slider'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-search-location"></i>
+                            <p>
+                                Hero Slider
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('sliders.index') }}" class="nav-link {{ session('lsbsm') == 'allFrontSlider' ? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Main Slider</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                   
+
 
                     {{--<li class="nav-item {{ session('lsbm') == 'categories'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'categories'? ' active ' : ''}}">
@@ -345,7 +361,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'causes' ? ' active ' : ''}}">
                             <i class="nav-icon fas fa-hands-helping"></i>
                             <p>
-                                Prices
+                                Pricing Plan
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -353,13 +369,13 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.causes.index') }}" class="nav-link {{ session('lsbsm') == 'allCauses' ? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Prices</p>
+                                    <p>All Pricing Plan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('admin.causes.create') }}" class="nav-link {{ session('lsbsm') == 'createCause' ? ' active ' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Price</p>
+                                    <p>Create Pricing Plan</p>
                                 </a>
                             </li>
                         </ul>
@@ -391,25 +407,6 @@
 
                         </ul>
                     </li>--}}
-
-
-                    <li class="nav-item {{ session('lsbm') == 'mediaM'? ' menu-open ' : ''}}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'mediaM'? ' active ' : ''}}">
-                            <i class="nav-icon fas fa-pager"></i>
-                            <p>
-                                Media
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('medias.index') }}" class="nav-link {{ session('lsbsm') == 'mediaSM'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Media</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <li class="nav-item {{ session('lsbm') == 'posts'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'posts'? ' active ' : ''}}">
@@ -478,7 +475,7 @@
                     </li>--}}
 
 
-                    <li class="nav-item {{ session('lsbm') == 'galleries' ? ' menu-open ' : '' }}">
+                    {{--<li class="nav-item {{ session('lsbm') == 'galleries' ? ' menu-open ' : '' }}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'galleries' ? ' active ' : '' }}">
                             <i class="nav-icon fas fas fa-bell"></i>
                             <p>
@@ -503,7 +500,7 @@
                             </li>
 
                         </ul>
-                    </li>
+                    </li>--}}
 
                     {{--<li class="nav-item {{ session('lsbm') == 'testimonials' ? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'testimonials' ? ' active ' : ''}}">

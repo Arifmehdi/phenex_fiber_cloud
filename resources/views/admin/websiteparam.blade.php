@@ -337,7 +337,12 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="price_subtitle" class="control-label">Price Sub-Title</label>
-                                            <input type="text" name="price_subtitle" class="form-control"  id="price_subtitle" placeholder="Price Sub-Title" value="{{ old('price_subtitle') ?: $websiteParameter->price_subtitle ?? '' }}">
+                                            <div class="input-group">
+                                                <input type="text" name="price_subtitle" class="form-control"  id="price_subtitle" placeholder="Price Sub-Title" value="{{ old('price_subtitle') ?: $websiteParameter->price_subtitle ?? '' }}">
+                                                <span class="input-group-addon" style="padding: 0 10px;">
+                                                    <input type="checkbox" name="price_plan_is_active" id="price_plan_is_active" {{ $websiteParameter->price_plan_is_active == 1 ? 'checked' : '' }} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -353,7 +358,12 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="tips_subtitle" class="control-label">Tips Sub-Title</label>
-                                            <input type="text" name="tips_subtitle" class="form-control"  id="tips_subtitle" placeholder="Tips Sub-Title" value="{{ old('tips_subtitle') ?: $websiteParameter->tips_subtitle ?? '' }}">
+                                            <div class="input-group">
+                                                <input type="text" name="tips_subtitle" class="form-control"  id="tips_subtitle" placeholder="Tips Sub-Title" value="{{ old('tips_subtitle') ?: $websiteParameter->tips_subtitle ?? '' }}">
+                                                <span class="input-group-addon" style="padding: 0 10px;">
+                                                    <input type="checkbox" name="tips_is_active" id="tips_is_active" {{ $websiteParameter->tips_is_active == 1 ? 'checked' : '' }} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -573,21 +583,13 @@
 </script>
 @endsection
 
-@section('js')
+@push('js')
 <script>
-    // // Initialize CKEditor for both English and Bangla textareas
-    // CKEDITOR.replace('about_us_en', {
-    //     height: 300,
-    //     removeButtons: 'PasteFromWord'
-    // });
-    // CKEDITOR.replace('about_us_bn', {
-    //     height: 300,
-    //     contentsLanguage: 'bn'
-    // });
-
-
+    $(function() {
+        $('#service_is_active').bootstrapToggle();
+        $('#why_cloud_is_active').bootstrapToggle();
+        $('#price_plan_is_active').bootstrapToggle();
+        $('#tips_is_active').bootstrapToggle();
+    });
 </script>
-
-
-
-@endsection
+@endpush

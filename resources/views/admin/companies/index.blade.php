@@ -19,18 +19,34 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Actions</th>
                                 <th>Image</th>
                                 <th>Title</th>
                                 {{--<th>Phone</th>
                                 <th>Address</th>--}}
                                 <th>Status</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($companies as $company)
                                 <tr>
+
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <div class="dropdown show">
+                                            <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+                                                Action
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="{{ route('admin.companies.edit', $company->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                                <form action="{{ route('admin.companies.destroy', $company->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>
                                         @if ($company->img)
                                             <img src="{{ asset('storage/' . $company->img) }}" alt="{{ $company->name }}" width="50">
@@ -46,14 +62,7 @@
                                             <span class="badge badge-danger">Inactive</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                        <form action="{{ route('admin.companies.destroy', $company->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
-                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

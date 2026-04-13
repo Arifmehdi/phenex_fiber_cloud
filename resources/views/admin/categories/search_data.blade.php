@@ -13,16 +13,20 @@
         <tr>
             <td>{{$i++}}</td>
             <td>
-                <a href="{{route('categories.show',$category->id)}}" class="btn btn-xs btn-outline-info mr-1 float-left"><i class="fa fa-eye"></i></a>
-                <a href="{{route('categories.edit',$category->id)}}" class="btn btn-xs btn-outline-primary mr-1 float-left"><i class="fa fa-edit"></i></a>
-
-                <form action="{{route('categories.destroy',$category->id)}}" method="post" onclick="return confirm('Are you sure you want to delete this item?');">
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-xs btn-outline-danger mr-1 float-left" style="cursor: pointer;"><i class="fa fa-trash"></i></button>
-
-                </form>
+                <div class="dropdown show">
+                    <a class="btn btn-primary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{route('categories.show',$category->id)}}"><i class="fa fa-eye"></i> View</a>
+                        <a class="dropdown-item" href="{{route('categories.edit',$category->id)}}"><i class="fa fa-edit"></i> Edit</a>
+                        <form action="{{route('categories.destroy',$category->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i> Delete</button>
+                        </form>
+                    </div>
+                </div>
             </td>
             <td>{{$category->name}}</td>
             <td>

@@ -43,7 +43,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\MosqueController;
 use App\Http\Controllers\Admin\MosqueController as AdminMosqueController;
 use App\Http\Controllers\Frontend\MembershipController;
-use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\AdminContactController as AdminContactController;
 
 // Route::get('/',[AuthController::class,'index'])->name('login');
 
