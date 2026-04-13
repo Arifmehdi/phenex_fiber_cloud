@@ -9,7 +9,11 @@
                     <div class="col-lg-10 col-sm-9 col-7 d-flex align-items-center justify-content-end position-static">
                         <div class="nav-wrapper w-100 d-flex justify-content-end justify-content-lg-center">
                             <ul class="nav">
-                                                                <li><a class="current-menu-parent" href="{{ route('home') }}">Home</a></li>
+                            <li>
+                                <a class="{{ request()->routeIs('home') ? 'current-menu-parent' : '' }}" href="{{ route('home') }}">
+                                    Home
+                                </a>
+                            </li>
                                 @foreach ($headerMenus as $menu)
                                     @php
                                         $pages = $menu->latestPages();
@@ -33,7 +37,11 @@
                                     </li>
                                 @endforeach
                                     {{--<li><a href="{{ route('about') }}">About Us</a></li>--}}
-                                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                                <li>
+                                    <a class="{{ request()->routeIs('contact') ? 'current-menu-parent' : '' }}" href="{{ route('contact') }}">
+                                        Contact
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="d-flex align-items-center mr-2 mr-sm-3">

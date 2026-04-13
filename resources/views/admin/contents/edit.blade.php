@@ -12,6 +12,14 @@
                 @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter name" value="{{old('name', $data->name)}}">
+                        @error('name')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="content">Content <span class="text-danger">*</span></label>
                         <textarea name="content" id="content" class="form-control summernote @error('content') is-invalid @enderror" placeholder="Enter content" required>{{old('content', $data->content)}}</textarea>
                         @error('content')

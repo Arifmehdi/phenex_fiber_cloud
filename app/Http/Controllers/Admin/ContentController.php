@@ -18,6 +18,7 @@ class ContentController extends Controller
 
     public function store(Request $r){
         $r->validate([
+            'name' => 'nullable|string|max:255',
             'content' => 'required|string',
             'side_note' => 'nullable|string'
         ]);
@@ -32,6 +33,7 @@ class ContentController extends Controller
 
     public function update(Request $r, $id){
         $r->validate([
+            'name' => 'nullable|string|max:255',
             'content' => 'required|string',
             'side_note' => 'nullable|string'
         ]);
