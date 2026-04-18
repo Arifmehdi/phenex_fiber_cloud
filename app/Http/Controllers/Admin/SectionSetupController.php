@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class SectionSetupController extends Controller
 {
     public function index(){
-        $data = SectionSetup::with([
+        $data = SectionSetup::orderBy('created_at', 'desc')->with([
             'section','title','subTitle','content','pricing','features', 'page'
         ])->paginate(20);
 
@@ -43,7 +43,8 @@ class SectionSetupController extends Controller
             'content_id' => 'nullable|exists:contents,id',
             'page_id' => 'nullable|exists:pages,id',
             'features' => 'nullable|array',
-            'side_note' => 'nullable|string'
+            'side_note' => 'nullable|string',
+            'active'    => 'nullable|boolean'
         ]);
         $setup = SectionSetup::create($r->all());
 
@@ -74,24 +75,46 @@ class SectionSetupController extends Controller
         ]);
     }
 
-    public function update(Request $r, $id){
+    public function update(Request $r, $id)
+    {
         $r->validate([
-            'section_id' => 'required|exists:sections,id',
-            'title_id' => 'nullable|exists:titles,id',
+            'section_id'   => 'required|exists:sections,id',
+            'title_id'     => 'nullable|exists:titles,id',
             'sub_title_id' => 'nullable|exists:sub_titles,id',
-            'content_id' => 'nullable|exists:contents,id',
-            'page_id' => 'nullable|exists:pages,id',
-            'features' => 'nullable|array',
-            'side_note' => 'nullable|string'
+            'content_id'   => 'nullable|exists:contents,id',
+            'page_id'      => 'nullable|exists:pages,id',
+            'features'     => 'nullable|array',
+            'side_note'    => 'nullable|string',
+            'active'       => 'nullable|boolean',
         ]);
-        $setup = SectionSetup::findOrFail($id);
-        $setup->update($r->all());
 
-        if($r->features){
+        $setup = SectionSetup::findOrFail($id);
+
+        // ✅ Safe data handling (avoid mass assignment issues)
+        $data = $r->only([
+            'section_id',
+            'title_id',
+            'sub_title_id',
+            'content_id',
+            'page_id',
+            'side_note'
+        ]);
+
+        // ✅ Fix checkbox issue
+        $data['active'] = $r->has('active') ? 1 : 0;
+
+        $setup->update($data);
+
+        // ✅ Sync features (or detach if empty)
+        if ($r->has('features')) {
             $setup->features()->sync($r->features);
+        } else {
+            $setup->features()->detach();
         }
 
-        return redirect()->route('section-setups.index')->with('success', 'Section Setup updated successfully.');
+        return redirect()
+            ->route('section-setups.index')
+            ->with('success', 'Section Setup updated successfully.');
     }
 
     public function toggleActive($id){

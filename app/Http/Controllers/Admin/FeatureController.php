@@ -11,7 +11,7 @@ class FeatureController extends Controller
 {
     public function index(){
         menuSubmenu('cloudcontent', 'allFeatures');
-        $data = Feature::with('section')->paginate(20);
+        $data = Feature::orderBy('created_at', 'desc')->with('section')->paginate(20);
         return view('admin.features.index', compact('data'));
     }
 

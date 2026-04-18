@@ -11,7 +11,7 @@ class PricingController extends Controller
 {
     public function index(){
         menuSubmenu('cloudcontent', 'allPricings');
-        $data = Pricing::with('section')->paginate(20);
+        $data = Pricing::orderBy('created_at', 'desc')->with('section')->paginate(20);
         return view('admin.pricings.index', compact('data'));
     }
 

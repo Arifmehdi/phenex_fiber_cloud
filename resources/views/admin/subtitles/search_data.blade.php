@@ -20,7 +20,11 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="{{route('subtitles.show',$item->id)}}"><i class="fas fa-eye"></i> View</a>
                         <a class="dropdown-item" href="{{route('subtitles.edit',$item->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                        <a class="dropdown-item" href="{{route('subtitles.destroy',$item->id)}}" onclick="return confirm('Are you sure?');" style="cursor:pointer;"><i class="fas fa-trash"></i> Delete</a>
+                        <form action="{{route('subtitles.destroy',$item->id)}}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure?');"><i class="fas fa-trash"></i> Delete</button>
+                        </form>
                     </div>
                 </div>
             </td>

@@ -10,7 +10,7 @@ class TitleController extends Controller
 {
     public function index(){
         menuSubmenu('cloudcontent', 'allTitles');
-        $data = Title::paginate(20);
+        $data = Title::orderBy('created_at', 'desc')->paginate(20);
         return view('admin.titles.index', compact('data'));
     }
 

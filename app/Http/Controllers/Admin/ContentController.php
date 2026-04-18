@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ContentController extends Controller
 {
     public function index(){
-        $data = Content::paginate(20);
+        $data = Content::orderBy('created_at', 'desc')->paginate(20);
         return view('admin.contents.index', compact('data'));
     }
 

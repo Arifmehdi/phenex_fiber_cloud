@@ -10,7 +10,7 @@ class SubTitleController extends Controller
 {
     public function index(){
         menuSubmenu('cloudcontent', 'allSubTitles');
-        $data = SubTitle::paginate(20);
+        $data = SubTitle::orderBy('created_at', 'desc')->paginate(20);
         return view('admin.subtitles.index', compact('data'));
     }
 
